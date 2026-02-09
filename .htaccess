@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Define a ordem de prioridade: tenta gate.php, depois index.php, depois index.html
+    DirectoryIndex gate.php index.php index.html
+</IfModule>
+
+<FilesMatch "\.php$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
