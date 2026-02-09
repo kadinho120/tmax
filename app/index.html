@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo T-Max 7D - Oficial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .sidebar-link.active { background-color: #1e293b; border-left: 4px solid #fbbf24; color: #fbbf24; }
+        .content-section { display: none; }
+        .content-section.active { display: block; animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .recipe-card { background: linear-gradient(145deg, #1e293b, #0f172a); border: 1px solid #334155; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; }
+        .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col md:flex-row">
+
+    <!-- Sidebar / Navegação -->
+    <aside class="w-full md:w-80 bg-slate-900 border-r border-slate-800 flex-shrink-0 sticky top-0 h-auto md:h-screen overflow-y-auto z-50">
+        <div class="p-6">
+            <h1 class="text-2xl font-800 text-amber-500 tracking-tighter">T-MAX <span class="text-white">7D</span></h1>
+            <p class="text-xs text-slate-400 mt-1 uppercase tracking-widest">Protocolo de Recuperação</p>
+        </div>
+        
+        <nav class="mt-4 px-3 space-y-1 pb-10">
+            <p class="text-[10px] font-bold text-slate-500 px-3 py-2 uppercase">Introdução</p>
+            <button onclick="showSection('boas-vindas')" class="sidebar-link active w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all">Bem-vindo ao Protocolo</button>
+            <button onclick="showSection('ciencia')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all">A Ciência da Ereção</button>
+            
+            <p class="text-[10px] font-bold text-slate-500 px-3 py-2 uppercase mt-4">O Plano de 7 Dias</p>
+            <button onclick="showSection('dia1')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all">Dia 1: Desintoxicação Vascular</button>
+            <button onclick="showSection('dia2')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all">Dia 2: Ativação de Óxido Nítrico</button>
+            <button onclick="showSection('dia3')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all">Dia 3: Estímulo Hormonal Natural</button>
+            <button onclick="showSection('dia4')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all">Dia 4: Calibração do Sistema Nervoso</button>
+            <button onclick="showSection('dia5')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all">Dia 5: Resistência e Fluxo</button>
+            <button onclick="showSection('dia6')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all">Dia 6: Fortalecimento de Base</button>
+            <button onclick="showSection('dia7')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all">Dia 7: Consolidação T-Max</button>
+            
+            <p class="text-[10px] font-bold text-slate-500 px-3 py-2 uppercase mt-4">Receitas & Nutrição</p>
+            <button onclick="showSection('sucos')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all">Sucos de Ativação Rápida</button>
+            <button onclick="showSection('chas')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all">Chás de Controle de Ansiedade</button>
+            <button onclick="showSection('refeicoes')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all">Almoços Potencializadores</button>
+            
+            <p class="text-[10px] font-bold text-slate-500 px-3 py-2 uppercase mt-4">Prática</p>
+            <button onclick="showSection('exercicios')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all font-bold text-amber-400">Aula em Vídeo: Exercício Plumped</button>
+            
+            <p class="text-[10px] font-bold text-slate-500 px-3 py-2 uppercase mt-4">Extras</p>
+            <button onclick="showSection('suplementos')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all">Suplementos de Apoio</button>
+            <button onclick="showSection('conclusao')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all">Manutenção Vitalícia</button>
+        </nav>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="flex-1 p-6 md:p-12 overflow-y-auto max-w-5xl mx-auto">
+        
+        <!-- SEÇÃO: BEM-VINDO -->
+        <section id="boas-vindas" class="content-section active space-y-8">
+            <div class="relative rounded-2xl overflow-hidden h-64 bg-slate-800 flex items-center justify-center shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-900 to-transparent z-10"></div>
+                <div class="z-20 p-8">
+                    <h2 class="text-4xl font-bold mb-2">Protocolo T-Max 7D</h2>
+                    <p class="text-amber-400 text-lg">A jornada definitiva para retomar sua masculinidade.</p>
+                </div>
+            </div>
+            
+            <div class="prose prose-invert max-w-none">
+                <h3 class="text-2xl font-semibold text-white">O Início de uma Nova Era</h3>
+                <p class="text-slate-300 leading-relaxed">
+                    Você está prestes a iniciar um protocolo cientificamente estruturado para reverter os danos causados por anos de má alimentação, estresse e sedentarismo. O <strong>T-Max 7D</strong> não é apenas um guia de receitas, é uma reengenharia biológica. Nos próximos 7 dias, focaremos em três pilares: <strong>Vascularização</strong>, <strong>Equilíbrio Hormonal</strong> e <strong>Conexão Mente-Corpo</strong>.
+                </p>
+                <div class="bg-blue-900/30 border border-blue-500/50 p-6 rounded-xl mt-6">
+                    <h4 class="text-blue-400 font-bold mb-2">Atenção Especial:</h4>
+                    <p class="text-sm text-blue-100">Siga cada passo com rigor. Os resultados são cumulativos. Se pular um dia, o ciclo de óxido nítrico será interrompido.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: CIÊNCIA -->
+        <section id="ciencia" class="content-section space-y-6">
+            <h2 class="text-3xl font-bold text-amber-500">A Ciência da Ereção</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="recipe-card p-6 rounded-2xl">
+                    <h4 class="text-xl font-bold mb-3 text-white">Óxido Nítrico: A Chave</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">O óxido nítrico é um vasodilatador natural produzido pelo endotélio. Sem ele, os corpos cavernosos não relaxam o suficiente para permitir a entrada maciça de sangue.</p>
+                </div>
+                <div class="recipe-card p-6 rounded-2xl">
+                    <h4 class="text-xl font-bold mb-3 text-white">Testosterona Livre</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Não basta ter testosterona, ela precisa estar livre. Reduziremos o SHBG através de nutrientes específicos para liberar o hormônio que você já possui.</p>
+                </div>
+            </div>
+            <div class="bg-slate-800 p-8 rounded-2xl mt-8">
+                <h3 class="text-2xl font-bold mb-4">O Inimigo Oculto: Cortisol</h3>
+                <p class="text-slate-300 leading-relaxed">O estresse crônico mata a ereção antes mesmo dela começar. O excesso de cortisol inibe a resposta parassimpática, que é o modo "descansar e digerir" necessário para o fluxo sanguíneo genital. O protocolo inclui moduladores de GABA e relaxantes nervosos para garantir que o seu sistema parassimpático assuma o controle no momento H.</p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: DIA 1 -->
+        <section id="dia1" class="content-section space-y-6">
+            <div class="flex items-center gap-4">
+                <span class="text-5xl font-black text-slate-700">01</span>
+                <h2 class="text-3xl font-bold text-white">Desintoxicação Vascular</h2>
+            </div>
+            <p class="text-slate-400">Hoje o foco é limpar os receptores e reduzir a inflamação sistêmica que bloqueia as artérias.</p>
+            <div class="space-y-4">
+                <div class="bg-slate-800 p-4 rounded-lg flex gap-4 items-start">
+                    <div class="bg-amber-500 text-slate-900 p-2 rounded-full font-bold text-xs">AÇÃO</div>
+                    <div>
+                        <h4 class="font-bold">Jejum de Açúcar e Farinha</h4>
+                        <p class="text-sm text-slate-400">Elimine qualquer carboidrato simples hoje para reduzir o pico de insulina, que é um vasoconstritor potente.</p>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-4 rounded-lg flex gap-4 items-start">
+                    <div class="bg-amber-500 text-slate-900 p-2 rounded-full font-bold text-xs">AÇÃO</div>
+                    <div>
+                        <h4 class="font-bold">Shot de Limão com Cúrcuma</h4>
+                        <p class="text-sm text-slate-400">Em jejum: 1 limão espremido + 1 colher de café de cúrcuma + pitada de pimenta preta. Isso "acorda" o sistema circulatório.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: DIA 2 -->
+        <section id="dia2" class="content-section space-y-6">
+            <div class="flex items-center gap-4">
+                <span class="text-5xl font-black text-slate-700">02</span>
+                <h2 class="text-3xl font-bold text-white">Ativação de Óxido Nítrico</h2>
+            </div>
+            <div class="bg-slate-800 p-6 rounded-xl">
+                <p class="text-slate-300 mb-4">Hoje vamos focar em abrir as "torneiras" do fluxo sanguíneo através de precursores de NO.</p>
+                <div class="space-y-3">
+                    <p class="text-sm"><strong class="text-amber-500">MANHÃ:</strong> Smoothie de Beterraba e Melancia (receita na seção de sucos).</p>
+                    <p class="text-sm"><strong class="text-amber-500">ALMOÇO:</strong> Vegetais de folhas escuras (espinafre/rúcula) em abundância com azeite de oliva extra virgem.</p>
+                    <p class="text-sm"><strong class="text-amber-500">PRÁTICA:</strong> Caminhada de 20 minutos em ritmo acelerado para forçar o bombeamento cardíaco periférico.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: DIA 3 -->
+        <section id="dia3" class="content-section space-y-6">
+            <div class="flex items-center gap-4">
+                <span class="text-5xl font-black text-slate-700">03</span>
+                <h2 class="text-3xl font-bold text-white">Estímulo Hormonal Natural</h2>
+            </div>
+            <p class="text-slate-400">Foco em micronutrientes: Zinco, Magnésio e Boro para destravar a Testosterona Livre.</p>
+            <div class="bg-slate-800 p-6 rounded-xl space-y-4">
+                <div class="border-l-4 border-amber-500 pl-4">
+                    <h4 class="font-bold">O Almoço Hormonal</h4>
+                    <p class="text-sm text-slate-300">3 Ovos cozidos (ricos em colesterol bom para síntese de hormônios) + 1/2 Abacate + Sementes de Girassol.</p>
+                </div>
+                <div class="border-l-4 border-amber-500 pl-4">
+                    <h4 class="font-bold">Exposição Solar</h4>
+                    <p class="text-sm text-slate-300">15 minutos de sol sem protetor solar (entre 10h e 15h) para ativar a Vitamina D3, essencial para o vigor masculino.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: DIA 4 -->
+        <section id="dia4" class="content-section space-y-6">
+            <div class="flex items-center gap-4">
+                <span class="text-5xl font-black text-slate-700">04</span>
+                <h2 class="text-3xl font-bold text-white">Calibração do Sistema Nervoso</h2>
+            </div>
+            <p class="text-slate-400">Trabalhando a conexão entre o cérebro e os nervos pélvicos.</p>
+            <div class="recipe-card p-6 rounded-xl">
+                <h4 class="font-bold text-amber-500 mb-2">Técnica de Respiração 4-7-8</h4>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                    Inspire por 4 segundos, segure por 7, expire por 8. Repita 10 vezes. Isso reduz instantaneamente a adrenalina, permitindo que o sistema parassimpático tome o controle da ereção.
+                </p>
+                <h4 class="font-bold text-amber-500 mt-4 mb-2">Zero Pornografia</h4>
+                <p class="text-sm text-slate-300">O cérebro precisa de um "reboot" de dopamina para responder a estímulos reais novamente.</p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: DIA 5 -->
+        <section id="dia5" class="content-section space-y-6">
+            <div class="flex items-center gap-4">
+                <span class="text-5xl font-black text-slate-700">05</span>
+                <h2 class="text-3xl font-bold text-white">Resistência e Fluxo</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-800 p-5 rounded-xl">
+                    <h4 class="font-bold text-white mb-2">Cardio de Explosão (HIIT)</h4>
+                    <p class="text-xs text-slate-400">3 tiros de 30 segundos correndo ou pedalando no máximo, com 2 minutos de descanso entre eles.</p>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-xl">
+                    <h4 class="font-bold text-white mb-2">Hidratação Estrutural</h4>
+                    <p class="text-xs text-slate-400">3 litros de água hoje, com uma pitada de sal marinho em cada garrafa para melhorar a condutividade elétrica nervosa.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: DIA 6 -->
+        <section id="dia6" class="content-section space-y-6">
+            <div class="flex items-center gap-4">
+                <span class="text-5xl font-black text-slate-700">06</span>
+                <h2 class="text-3xl font-bold text-white">Fortalecimento de Base</h2>
+            </div>
+            <div class="prose prose-invert">
+                <p class="text-slate-300">Hoje focamos no assoalho pélvico, a "bomba" que mantém o sangue preso no órgão genital.</p>
+                <div class="bg-amber-900/20 p-6 border border-amber-500/20 rounded-xl">
+                    <h4 class="text-amber-500">Exercício Kegel T-Max</h4>
+                    <p class="text-sm">Contraia o músculo que você usa para interromper a urina por 5 segundos, relaxe por 5. Faça 3 séries de 15 repetições ao longo do dia.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: DIA 7 -->
+        <section id="dia7" class="content-section space-y-6">
+            <div class="flex items-center gap-4">
+                <span class="text-5xl font-black text-slate-700">07</span>
+                <h2 class="text-3xl font-bold text-white">Consolidação T-Max</h2>
+            </div>
+            <div class="bg-slate-800 p-6 rounded-xl border border-amber-500/30 shadow-lg">
+                <h3 class="text-xl font-bold text-amber-500 mb-4">O Dia da Reconexão</h3>
+                <p class="text-slate-300 leading-relaxed mb-4">
+                    Neste último dia do protocolo intensivo, você deve sentir uma melhora na qualidade das ereções matinais e maior sensibilidade. O objetivo de hoje é o relaxamento total e a celebração dos novos níveis de energia.
+                </p>
+                <ul class="space-y-2 text-sm">
+                    <li>✓ Banho de contraste (1 min quente / 30 seg frio) 3x para tonificação vascular profunda.</li>
+                    <li>✓ Meditação de 10 minutos focada na respiração abdominal consciente.</li>
+                    <li>✓ Refeição rica em L-Arginina (Oleaginosas, Nozes e Peixes de água fria).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: EXERCÍCIOS -->
+        <section id="exercicios" class="content-section space-y-6">
+            <h2 class="text-3xl font-bold text-amber-500 uppercase tracking-tighter">Aula Prática: Técnica Plumped Bend</h2>
+            <p class="text-slate-300">Este exercício é fundamental para aumentar a elasticidade dos corpos cavernosos e melhorar a retenção sanguínea (pressão intracavernosa).</p>
+            
+            <div class="video-container shadow-2xl border-4 border-slate-800">
+                <video controls preload="metadata">
+                    <source src="https://alpha7.instaboost.com.br/app/videos/plumped-bend.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos HTML5.
+                </video>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+                <div class="bg-slate-800 p-4 rounded-xl border-l-4 border-amber-500">
+                    <h5 class="font-bold text-amber-500 mb-1">Frequência</h5>
+                    <p class="text-xs text-slate-300">Realizar 1x ao dia, preferencialmente à noite.</p>
+                </div>
+                <div class="bg-slate-800 p-4 rounded-xl border-l-4 border-amber-500">
+                    <h5 class="font-bold text-amber-500 mb-1">Intensidade</h5>
+                    <p class="text-xs text-slate-300">Nunca deve causar dor. Apenas uma leve tensão controlada.</p>
+                </div>
+                <div class="bg-slate-800 p-4 rounded-xl border-l-4 border-amber-500">
+                    <h5 class="font-bold text-amber-500 mb-1">Duração</h5>
+                    <p class="text-xs text-slate-300">A sequência completa dura cerca de 5 a 8 minutos totais.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: SUCOS -->
+        <section id="sucos" class="content-section space-y-8">
+            <h2 class="text-3xl font-bold text-white">Sucos de Ativação Rápida</h2>
+            
+            <div class="recipe-card p-8 rounded-3xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 bg-amber-500 text-slate-900 font-bold text-xs rounded-bl-xl">O "VIAGRA" NATURAL</div>
+                <h3 class="text-2xl font-bold mb-4">Smoothie Explosão de Nitrato</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-amber-400 font-semibold mb-2">Ingredientes:</h4>
+                        <ul class="list-disc list-inside text-sm space-y-1 text-slate-300">
+                            <li>1/2 Beterraba crua (rica em nitratos puros)</li>
+                            <li>1 fatia grossa de Melancia com a parte branca (Citrulina)</li>
+                            <li>1 pedaço de Gengibre fresco (3cm)</li>
+                            <li>200ml de água de coco</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-amber-400 font-semibold mb-2">Por que funciona?</h4>
+                        <p class="text-sm text-slate-400 italic">A citrulina da melancia se converte em arginina no corpo, que junto com os nitratos da beterraba, cria uma onda de expansão vascular potente em menos de 45 minutos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recipe-card p-8 rounded-3xl">
+                <h3 class="text-2xl font-bold mb-4">Elixir de Zinco e Magnésio</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-amber-400 font-semibold mb-2">Ingredientes:</h4>
+                        <ul class="list-disc list-inside text-sm space-y-1 text-slate-300">
+                            <li>2 colheres de sopa de semente de abóbora</li>
+                            <li>1 Banana prata madura</li>
+                            <li>1 colher de chá de Maca Peruana (Opcional)</li>
+                            <li>250ml de leite vegetal ou água mineral</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-amber-400 font-semibold mb-2">Dica de Uso:</h4>
+                        <p class="text-sm text-slate-400 italic">Consumir 1 hora antes de dormir para potencializar a produção natural de testosterona durante o sono REM profundo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: CHÁS -->
+        <section id="chas" class="content-section space-y-8">
+            <h2 class="text-3xl font-bold text-white">Chás de Controle de Ansiedade</h2>
+            <p class="text-slate-300">O relaxamento mental é 50% da ereção. Use estes chás para baixar o cortisol.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-800 p-6 rounded-xl">
+                    <h4 class="text-amber-500 font-bold mb-2">Infusão de Ashwagandha</h4>
+                    <p class="text-sm text-slate-400 mb-4">Raiz adaptógena que reduz o estresse crônico e aumenta o vigor sexual.</p>
+                    <p class="text-xs text-slate-500"><strong>Modo de preparo:</strong> Ferva 200ml de água, adicione 1 colher de chá da raiz seca e deixe em infusão por 10 min.</p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-xl">
+                    <h4 class="text-amber-500 font-bold mb-2">Chá de Maracujá com Capim Cidreira</h4>
+                    <p class="text-sm text-slate-400 mb-4">Ideal para quem sofre de ansiedade de desempenho (medo de "falhar").</p>
+                    <p class="text-xs text-slate-500"><strong>Modo de preparo:</strong> Use a polpa de meio maracujá e 3 folhas de capim cidreira frescos em 300ml de água fervente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: REFEIÇÕES -->
+        <section id="refeicoes" class="content-section space-y-8">
+            <h2 class="text-3xl font-bold text-white">Almoços Potencializadores</h2>
+            <div class="recipe-card p-6 rounded-xl border border-slate-700">
+                <h4 class="text-xl font-bold text-amber-500 mb-4">Prato T-Max Padrão</h4>
+                <div class="space-y-4">
+                    <p class="text-sm text-slate-300"><strong>Base Proteica:</strong> 150g de Salmão, Sardinha ou Frango Grelhado.</p>
+                    <p class="text-sm text-slate-300"><strong>Base Vegetal:</strong> Brócolis no vapor (contém Indol-3-Carbinol, que remove estrogênio ruim) e Rúcula à vontade.</p>
+                    <p class="text-sm text-slate-300"><strong>Gordura Boa:</strong> 1/4 de Abacate ou 1 colher de sopa de Azeite de Oliva.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: SUPLEMENTOS -->
+        <section id="suplementos" class="content-section space-y-8">
+            <h2 class="text-3xl font-bold text-white">Suplementos de Apoio</h2>
+            <p class="text-slate-300">Complementos naturais para acelerar os resultados do protocolo.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-800 p-5 rounded-xl text-center">
+                    <div class="text-amber-500 text-3xl mb-2 font-bold">Zn</div>
+                    <h4 class="font-bold text-white">Zinco Quelato</h4>
+                    <p class="text-xs text-slate-400">30mg/dia. Fundamental para a contagem de esperma e níveis de testosterona.</p>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-xl text-center">
+                    <div class="text-amber-500 text-3xl mb-2 font-bold">Mg</div>
+                    <h4 class="font-bold text-white">Magnésio</h4>
+                    <p class="text-xs text-slate-400">400mg/dia. Melhora a qualidade do sono e relaxa a musculatura lisa vascular.</p>
+                </div>
+                <div class="bg-slate-800 p-5 rounded-xl text-center">
+                    <div class="text-amber-500 text-3xl mb-2 font-bold">Arg</div>
+                    <h4 class="font-bold text-white">L-Arginina</h4>
+                    <p class="text-xs text-slate-400">3g/dia. O precursor direto do óxido nítrico no sangue.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: CONCLUSÃO -->
+        <section id="conclusao" class="content-section space-y-6">
+            <h2 class="text-3xl font-bold text-amber-500">Manutenção Vitalícia</h2>
+            <div class="prose prose-invert max-w-none">
+                <p>O Protocolo T-Max 7D não termina hoje. Ele é o alicerce de uma vida inteira de vigor. Para manter os ganhos:</p>
+                <ol class="text-slate-300 space-y-4">
+                    <li><strong>A Regra 80/20:</strong> Siga a base alimentar do protocolo 80% do tempo. Permita-se pequenos prazeres sem perder o foco na saúde vascular.</li>
+                    <li><strong>Sol Diário:</strong> 15 minutos de sol são cruciais para a produção de precursores hormonais que o corpo não fabrica sozinho.</li>
+                    <li><strong>Sono de Qualidade:</strong> Sem 7 horas de sono, sua produção de testosterona cai drasticamente em menos de 24 horas.</li>
+                </ol>
+            </div>
+            <div class="mt-12 p-8 bg-gradient-to-br from-amber-600 to-amber-800 rounded-3xl text-center shadow-xl">
+                <h3 class="text-2xl font-bold text-white mb-2">Você retomou o controle.</h3>
+                <p class="text-amber-100 italic">Sua masculinidade é o seu maior ativo. Cuide dela.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function showSection(id) {
+            // Verificar se o elemento existe antes de tentar manipulá-lo
+            const targetSection = document.getElementById(id);
+            
+            if (!targetSection) {
+                console.error("Seção não encontrada: " + id);
+                return;
+            }
+
+            // Ocultar todas as seções
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Mostrar a seção alvo
+            targetSection.classList.add('active');
+            
+            // Atualizar links da sidebar
+            const links = document.querySelectorAll('.sidebar-link');
+            links.forEach(link => {
+                link.classList.remove('active');
+                // Verifica se a chamada da função no onclick contém o ID alvo
+                if (link.getAttribute('onclick') && link.getAttribute('onclick').includes("'" + id + "'")) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll para o topo no mobile
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Garante que a seção inicial seja carregada corretamente
+        window.onload = function() {
+            showSection('boas-vindas');
+        };
+    </script>
+</body>
+</html>
