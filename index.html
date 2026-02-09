@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagnóstico Hormonal T-Max</title>
+    <title>Protocolo T-Max - Reativação Biológica</title>
     
     <!-- CLARITY SCRIPT -->
     <script type="text/javascript">
@@ -50,8 +50,6 @@
         body { font-family: 'Inter', sans-serif; background-color: #080808; color: #ffffff; }
         .bg-gold { background: linear-gradient(90deg, #ffd700, #bf9523); }
         .text-gold { color: #ffd700; }
-        .progress-bar { transition: width 0.4s ease; }
-        .quiz-option:active { transform: scale(0.98); }
         .bg-red-glow { box-shadow: 0 0 30px rgba(220, 38, 38, 0.2); }
         
         .carousel-container {
@@ -68,7 +66,6 @@
             margin-right: 12px;
         }
 
-        /* Estilo da Notificação Push */
         #push-notification {
             transform: translateY(150%);
             transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -76,255 +73,162 @@
         #push-notification.active {
             transform: translateY(0);
         }
+
+        .cta-pulse {
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-start p-4 overflow-x-hidden">
+<body class="min-h-screen flex flex-col items-center justify-start overflow-x-hidden">
 
-    <!-- Push Notification Container -->
+    <!-- Push Notification -->
     <div id="push-notification" class="fixed bottom-6 left-4 right-4 max-w-sm mx-auto z-[100] bg-zinc-900/90 backdrop-blur-md border border-zinc-700/50 rounded-2xl p-4 shadow-2xl flex items-center gap-4 pointer-events-none">
-        <div class="w-10 h-10 bg-gold rounded-full flex-shrink-0 flex items-center justify-center shadow-inner">
+        <div class="w-10 h-10 bg-gold rounded-full flex-shrink-0 flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
         </div>
         <div class="flex flex-col">
-            <p id="push-text" class="text-sm font-bold text-zinc-100 leading-tight">Um homem de São Paulo acabou de baixar</p>
-            <p id="push-time" class="text-[10px] text-zinc-400 font-medium">Há 2 minutos</p>
+            <p id="push-text" class="text-sm font-bold text-zinc-100 leading-tight">Um homem de Curitiba acabou de baixar</p>
+            <p id="push-time" class="text-[10px] text-zinc-400 font-medium">Há 3 minutos</p>
         </div>
     </div>
 
-    <!-- Header -->
-    <header class="w-full max-w-md text-center py-6">
-        <div class="inline-block border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 rounded-full mb-4">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500">Laboratório de Performance Masculina</span>
+    <!-- Header / Hero Section -->
+    <header class="w-full max-w-md text-center pt-10 pb-6 px-4">
+        <div class="inline-block border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 rounded-full mb-6">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 font-black">Vagas de Acesso Liberadas via PIX</span>
         </div>
-        <h1 id="main-title" class="text-2xl font-black uppercase italic leading-tight">
-            Seu <span class="text-gold">Pênis</span> está morrendo aos poucos?
+        <h1 class="text-3xl font-black uppercase italic leading-tight mb-4">
+            Seu <span class="text-gold">Pênis</span> está morrendo e a culpa é do <span class="text-red-500">Sistema</span>.
         </h1>
+        <p class="text-zinc-400 text-sm mb-8 leading-relaxed">
+            Descubra a manobra biológica de 3 minutos para reverter o <span class="text-white font-bold italic underline">"Sequestro Hormonal"</span> e voltar a ter o vigor de um garoto de 18 anos.
+        </p>
+        <button onclick="scrollToOffer()" class="w-full py-5 bg-green-600 hover:bg-green-500 text-white rounded-2xl font-black text-xl uppercase cta-pulse transition-all">
+            Quero meu Vigor de Volta
+        </button>
     </header>
 
-    <main class="w-full max-w-md bg-zinc-900/80 border border-zinc-800 p-6 rounded-3xl shadow-2xl mb-10">
+    <main class="w-full max-w-md px-4 space-y-12 pb-20">
         
-        <!-- Progress Bar -->
-        <div id="progress-container" class="w-full bg-zinc-800 h-1.5 rounded-full mb-8">
-            <div id="progress-bar" class="progress-bar bg-gold h-full rounded-full" style="width: 5%"></div>
-        </div>
-
-        <!-- Quiz Container -->
-        <div id="quiz-container">
-            
-            <!-- Step 1: Idade -->
-            <div id="step-1" class="step">
-                <h2 class="text-xl font-bold mb-2 text-center text-zinc-100">Para começar, qual a sua idade atual?</h2>
-                <p class="text-zinc-500 text-xs text-center mb-6">A biologia do pênis muda drasticamente a cada década.</p>
-                <div class="space-y-3">
-                    <button onclick="nextStep(1, 2)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-sm text-left px-5">18 - 25 anos (Início da vida adulta)</button>
-                    <button onclick="nextStep(1, 2)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-sm text-left px-5">26 - 35 anos (Onde o declínio costuma começar)</button>
-                    <button onclick="nextStep(1, 2)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-sm text-left px-5 text-gold">36 - 50 anos (Estado de atenção hormonal)</button>
-                    <button onclick="nextStep(1, 2)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-sm text-left px-5 text-red-400">51 - 65 anos (Risco alto de impotência total)</button>
-                    <button onclick="nextStep(1, 2)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-sm text-left px-5">66+ anos (Necessidade de resgate urgente)</button>
-                </div>
+        <!-- A Armadilha -->
+        <section class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-3xl">
+            <div class="mb-6 overflow-hidden rounded-2xl border border-red-900/50 aspect-video">
+                <img src="https://ampost.com.br/wp-content/uploads/2024/04/alimentos-industrializados-1024x786.jpg" alt="Alimentos Industrializados" class="w-full h-full object-cover grayscale opacity-60">
             </div>
-
-            <!-- Step 2: Ereções Matinais -->
-            <div id="step-2" class="step hidden text-center">
-                <h2 class="text-xl font-bold mb-2">Com que frequência você acorda com "fogo no pênis"?</h2>
-                <p class="text-zinc-500 text-xs mb-6">A ereção matinal é o termômetro da sua saúde circulatória.</p>
-                <div class="space-y-3">
-                    <button onclick="nextStep(2, 3)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm">Todo santo dia, como um adolescente</button>
-                    <button onclick="nextStep(2, 3)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm">2 a 3 vezes por semana (Mediano)</button>
-                    <button onclick="nextStep(2, 3)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm">Raramente, apenas quando estou descansado</button>
-                    <button onclick="nextStep(2, 3)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm text-red-500">Não me lembro da última vez que aconteceu</button>
-                </div>
-            </div>
-
-            <!-- Step 3: O medo de brochar -->
-            <div id="step-3" class="step hidden text-center">
-                <h2 class="text-xl font-bold mb-2">Você já sentiu que ia brochar ou ficou "meia-bomba" na hora H?</h2>
-                <p class="text-zinc-500 text-xs mb-6 text-balance">Isso costuma gerar um trauma psicológico que piora a próxima vez.</p>
-                <div class="space-y-3">
-                    <button onclick="nextStep(3, 4)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm">Nunca falhei, sou 100% confiante</button>
-                    <button onclick="nextStep(3, 4)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm">Aconteceu uma ou duas vezes por estresse</button>
-                    <button onclick="nextStep(3, 4)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm">Tenho falhado com frequência (40% das vezes)</button>
-                    <button onclick="nextStep(3, 4)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm text-red-500 font-black">Brochei na última e estou com medo de tentar de novo</button>
-                </div>
-            </div>
-
-            <!-- Step 4: Controle de Ejaculação -->
-            <div id="step-4" class="step hidden text-center">
-                <h2 class="text-xl font-bold mb-2">Quanto tempo você aguenta antes de gozar?</h2>
-                <p class="text-zinc-500 text-xs mb-6">A sensibilidade excessiva é sinal de desequilíbrio no eixo HPTA.</p>
-                <div class="space-y-3">
-                    <button onclick="nextStep(4, 5)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm">Menos de 2 minutos (Vexame total)</button>
-                    <button onclick="nextStep(4, 5)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm">Entre 3 a 7 minutos (Abaixo da média)</button>
-                    <button onclick="nextStep(4, 5)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm">Consigo controlar, mas com muito esforço</button>
-                    <button onclick="nextStep(4, 5)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm text-gold">Gozo a hora que eu quiser, sou mestre</button>
-                </div>
-            </div>
-
-            <!-- Step 5: O fator parceira -->
-            <div id="step-5" class="step hidden text-center">
-                <h2 class="text-xl font-bold mb-2 italic">Como ela reage quando você não performa?</h2>
-                <p class="text-zinc-500 text-xs mb-6 text-balance">A frustração silenciosa da mulher é o que destrói casamentos.</p>
-                <div class="space-y-3">
-                    <button onclick="nextStep(5, 6)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm">Ela finge que não liga, mas eu sinto o clima ruim</button>
-                    <button onclick="nextStep(5, 6)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm">Ela reclama abertamente e brigamos por isso</button>
-                    <button onclick="nextStep(5, 6)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm">Não tenho parceira fixa no momento</button>
-                    <button onclick="nextStep(5, 6)" class="quiz-option w-full py-4 bg-zinc-800 border border-zinc-700 rounded-2xl font-bold text-left px-5 text-sm text-gold">Quero estar preparado para quando a hora H chegar</button>
-                </div>
-            </div>
-
-            <!-- Step 6: Doutrinação - A Castração Química -->
-            <div id="step-6" class="step hidden text-center">
-                <div class="mb-4 overflow-hidden rounded-2xl border border-red-900/50 aspect-video">
-                    <img src="https://ampost.com.br/wp-content/uploads/2024/04/alimentos-industrializados-1024x786.jpg" alt="Alimentos Industrializados" class="w-full h-full object-cover grayscale opacity-60">
-                </div>
-                <h2 class="text-xl font-bold mb-4 text-red-500 uppercase">O Sistema está te transformando em um Eunuco.</h2>
-                <p class="text-zinc-400 text-sm leading-relaxed mb-6">
-                    Você sabia que o nível médio de testosterona dos homens caiu 50% nos últimos 40 anos? Plásticos, agrotóxicos na água e soja na comida estão enchendo seu sangue de <span class="text-white font-bold italic underline">Estrogênio</span>. 
-                    <br><br>
-                    Isso cria uma <span class="text-white font-bold italic">camada de gordura</span> nos seus vasos sanguíneos que impede que o sangue chegue com pressão no seu pênis. É por isso que você está ficando murcho e broxa.
-                </p>
-                <button onclick="nextStep(6, 7)" class="w-full py-4 bg-zinc-700 rounded-2xl font-bold uppercase text-sm tracking-widest">Qual a saída? ➔</button>
-            </div>
-
-            <!-- Step 7: Validação Científica -->
-            <div id="step-7" class="step hidden text-center">
-                <div class="mb-4 overflow-hidden rounded-2xl border border-blue-900/50 aspect-video">
-                    <img src="https://www.news.med.br/fmfiles/index.asp/::news::/news/A-estimulacao-do-nervo-vago-e-promissora-na-recuperacao-de-lesoes-na-medula-espinhal.jpg" alt="Estimulação do Nervo Vago" class="w-full h-full object-cover">
-                </div>
-                <h2 class="text-xl font-bold mb-4 text-blue-400 uppercase">A Ciência por trás da Reativação</h2>
-                <p class="text-zinc-400 text-sm leading-relaxed mb-6">
-                    Pesquisadores alemães descobriram que não precisamos de pílulas azuis para ter ereções. A solução está em estimular o <span class="text-white font-bold italic underline">Nervo Vago</span> e a glândula pineal através de uma manobra mecânica específica. 
-                    <br><br>
-                    Ao fazer isso, seu corpo libera uma descarga de <span class="text-white font-bold italic underline">Óxido Nítrico</span> puro, dilatando as artérias cavernosas instantaneamente. O resultado? Um pênis tão <span class="text-white font-bold italic underline">duro como aço</span> que parece que vai explodir.
-                </p>
-                <button onclick="nextStep(7, 8)" class="w-full py-4 bg-zinc-700 rounded-2xl font-bold uppercase text-sm tracking-widest">Quem criou isso? ➔</button>
-            </div>
-
-            <!-- Step 8: O Especialista -->
-            <div id="step-8" class="step hidden text-center">
-                <!-- Foto do Especialista em Proporção 1:1 Quadrada -->
-                <div class="mb-4 mx-auto w-full aspect-square overflow-hidden rounded-2xl border border-zinc-700 max-w-[280px]">
-                    <img src="https://instaboost.com.br/wp-content/uploads/2026/02/14.jpeg" alt="Dr Ricardo Vilar Especialista" class="w-full h-full object-cover object-top" onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop'">
-                </div>
-                <h2 class="text-xl font-bold mb-1 text-zinc-100 italic">Dr. Ricardo Vilar</h2>
-                <span class="text-zinc-500 text-[10px] uppercase font-bold tracking-widest block mb-4">Urologista & PhD em Biofísica Masculina</span>
-                <p class="text-zinc-300 text-sm leading-relaxed mb-6 italic">
-                    "Eu cansei de ver homens de 35 anos sendo destruídos psicologicamente por não conseguirem manter o pênis firme. Desenvolvi o Protocolo T-Max para ser um tratamento doméstico, rápido e que qualquer homem possa usar sem precisar de receita ou vergonha."
-                </p>
-                <button onclick="nextStep(8, 9)" class="w-full py-4 bg-zinc-700 rounded-2xl font-bold uppercase text-sm tracking-widest text-gold">Ver Resultados Reais ➔</button>
-            </div>
-
-            <!-- Step 9: Prova Social -->
-            <div id="step-9" class="step hidden text-center">
-                <h2 class="text-xl font-bold mb-2">Homens que saíram da "lama"</h2>
-                <p class="text-zinc-500 text-[10px] mb-6 uppercase tracking-wider">Resultados visíveis de ereção rígida após 7 dias</p>
-                
-                <div class="carousel-container mb-4">
-                    <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg text-center">
-                        <img src="https://instaboost.com.br/wp-content/uploads/2025/11/1-4.jpg" class="w-full h-64 object-cover" alt="Resultado de ereção forte 1">
-                        <div class="p-3 bg-zinc-800/90 text-left">
-                            <span class="text-gold font-bold text-[10px]">DIRETO DO WHATSAPP</span>
-                            <p class="text-[11px] text-zinc-300 italic">"Nunca tive essa pressão antes."</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg text-center">
-                        <img src="https://instaboost.com.br/wp-content/uploads/2025/11/2-4.jpg" class="w-full h-64 object-cover" alt="Resultado de ereção forte 2">
-                        <div class="p-3 bg-zinc-800/90 text-left">
-                            <span class="text-gold font-bold text-[10px]">MÉTODO APLICADO</span>
-                            <p class="text-[11px] text-zinc-300 italic">"3º dia e já está assim."</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg text-center">
-                        <img src="https://instaboost.com.br/wp-content/uploads/2025/11/preview2.mp4.jpg" class="w-full h-64 object-cover" alt="Resultado de ereção forte 3">
-                        <div class="p-3 bg-zinc-800/90 text-left">
-                            <span class="text-gold font-bold text-[10px]">VÍDEO DE CLIENTE</span>
-                            <p class="text-[11px] text-zinc-300 italic">"Impressionado com o volume."</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg text-center">
-                        <img src="https://instaboost.com.br/wp-content/uploads/2025/11/preview.mp4-1.jpg" class="w-full h-64 object-cover" alt="Resultado de ereção forte 4">
-                        <div class="p-3 bg-zinc-800/90 text-left">
-                            <span class="text-gold font-bold text-[10px]">PÓS-TREINO T-MAX</span>
-                            <p class="text-[11px] text-zinc-300 italic">"Consigo manter por horas."</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg text-center">
-                        <img src="https://instaboost.com.br/wp-content/uploads/2025/11/3-4.jpg" class="w-full h-64 object-cover" alt="Resultado de ereção forte 5">
-                        <div class="p-3 bg-zinc-800/90 text-left">
-                            <span class="text-gold font-bold text-[10px]">CONTROLE TOTAL</span>
-                            <p class="text-[11px] text-zinc-300 italic">"Dureza de quando tinha 18 anos."</p>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-zinc-600 text-[10px] mb-8 uppercase font-bold animate-pulse text-center">Deslize para o lado para ver todos ➔</p>
-                
-                <button onclick="showLoading()" class="w-full py-5 bg-gold text-black rounded-2xl font-black uppercase text-lg italic shadow-xl">Obter meu diagnóstico final</button>
-            </div>
-        </div>
-
-        <!-- Loading State -->
-        <div id="loading" class="hidden flex flex-col items-center py-10 text-center">
-            <div class="w-20 h-20 border-4 border-gold border-t-transparent rounded-full animate-spin mb-6"></div>
-            <p id="loading-text" class="text-lg font-bold text-zinc-100">Verificando banco de dados...</p>
-            <p class="text-zinc-500 text-xs mt-2 px-6 italic">Cruzando seus sintomas com o Protocolo de Reativação T-Max...</p>
-        </div>
-
-        <!-- Result / Offer Page -->
-        <div id="result" class="hidden flex flex-col items-center">
-            <div class="bg-red-600/20 border border-red-600 text-red-500 px-4 py-2 rounded-xl mb-6 text-center font-black animate-pulse text-xs tracking-widest uppercase">
-                ⚠️ RISCO DE IMPOTÊNCIA PERMANENTE: NÍVEL 3
-            </div>
-            
-            <h2 class="text-2xl font-black text-center mb-4 leading-tight uppercase italic">
-                A Solução de 7 Dias.
-            </h2>
-            
-            <p class="text-zinc-400 text-center mb-6 leading-relaxed text-sm px-2">
-                O seu pênis não está morto, ele está apenas <span class="text-white font-bold underline italic">desligado</span>. O Protocolo T-Max 7D vai forçar a irrigação sanguínea em 3 minutos por dia para você nunca mais ter medo de falhar na cama.
+            <h2 class="text-xl font-bold mb-4 text-red-500 uppercase italic">O Sistema te quer fraco e broxa.</h2>
+            <p class="text-zinc-400 text-sm leading-relaxed">
+                Plásticos, agrotóxicos e soja industrializada estão inundando seu sangue com <span class="text-white font-bold italic underline">Estrogênio</span>. O resultado? Uma camada de gordura interna calcifica suas artérias, impedindo o fluxo sanguíneo chegar onde realmente importa. 
+                <br><br>
+                Você não está ficando velho, você está sendo <span class="text-white font-bold italic underline">castrado quimicamente</span> pelas grandes indústrias.
             </p>
+        </section>
 
-            <div class="w-full bg-zinc-800 p-5 rounded-2xl mb-6 border border-zinc-700 bg-red-glow text-center">
-                <div class="flex justify-between items-center mb-2">
-                    <span class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">Pagamento Seguro via PIX:</span>
-                    <span class="text-[10px] text-green-500 font-bold uppercase">Liberado</span>
-                </div>
-                <p class="text-xl font-black text-gold uppercase tracking-tighter">PROTOCOLO T-MAX 7D</p>
-                <div class="flex justify-center items-center gap-1 mt-3">
-                    <span class="text-zinc-500 line-through text-lg">R$ 97,00</span>
-                    <div class="flex items-start text-green-500 font-black">
-                        <span class="text-4xl">R$ 9</span>
-                        <span class="text-xl mt-1">,99</span>
+        <!-- A Ciência -->
+        <section class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-3xl">
+            <div class="mb-6 overflow-hidden rounded-2xl border border-blue-900/50 aspect-video">
+                <img src="https://www.news.med.br/fmfiles/index.asp/::news::/news/A-estimulacao-do-nervo-vago-e-promissora-na-recuperacao-de-lesoes-na-medula-espinhal.jpg" alt="Nervo Vago" class="w-full h-full object-cover opacity-80">
+            </div>
+            <h2 class="text-xl font-bold mb-4 text-blue-400 uppercase italic">A Manobra Bio-Mecânica T-Max</h2>
+            <p class="text-zinc-400 text-sm leading-relaxed">
+                Esqueça pílulas azuis que fritam seu coração. A ciência alemã provou que estimular o <span class="text-white font-bold italic underline">Nervo Vago</span> através de movimentos mecânicos específicos libera uma descarga massiva de <span class="text-white font-bold italic underline">Óxido Nítrico</span>.
+                <br><br>
+                Isso força o sangue a entrar com pressão total nos corpos cavernosos, deixando o pênis <span class="text-white font-bold italic underline text-lg">duro como aço</span> em questão de minutos.
+            </p>
+        </section>
+
+        <!-- O Especialista -->
+        <section class="text-center bg-zinc-900/80 border border-zinc-800 p-6 rounded-3xl">
+            <div class="mb-6 mx-auto w-full aspect-square overflow-hidden rounded-2xl border border-zinc-700 max-w-[280px]">
+                <img src="https://instaboost.com.br/wp-content/uploads/2026/02/14.jpeg" alt="Dr Ricardo Vilar" class="w-full h-full object-cover">
+            </div>
+            <h2 class="text-xl font-bold mb-1 italic">Dr. Ricardo Vilar</h2>
+            <span class="text-zinc-500 text-[10px] uppercase font-bold tracking-widest block mb-6">Urologista & Especialista em Performance</span>
+            <p class="text-zinc-300 text-sm leading-relaxed italic">
+                "Eu cansei de ver homens sofrendo com disfunção nível 2 por causa de má informação. O Protocolo T-Max 7D é a minha missão de vida: devolver a dignidade masculina sem remédios caros e sem vergonha."
+            </p>
+        </section>
+
+        <!-- Prova Social -->
+        <section class="space-y-6">
+            <h2 class="text-2xl font-black text-center uppercase italic">Resultados Reais</h2>
+            <div class="carousel-container">
+                <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg">
+                    <img src="https://instaboost.com.br/wp-content/uploads/2025/11/1-4.jpg" class="w-full h-64 object-cover">
+                    <div class="p-3 bg-zinc-800/90 text-left">
+                        <span class="text-gold font-bold text-[10px]">REATIVAÇÃO DIA 3</span>
+                        <p class="text-[11px] text-zinc-300 italic">"Nunca tive essa pressão antes."</p>
                     </div>
                 </div>
-                <p class="text-[10px] text-zinc-500 mt-2 italic font-bold text-center">Acesso enviado no seu e-mail imediatamente após o PIX</p>
+                <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg">
+                    <img src="https://instaboost.com.br/wp-content/uploads/2025/11/2-4.jpg" class="w-full h-64 object-cover">
+                    <div class="p-3 bg-zinc-800/90 text-left">
+                        <span class="text-gold font-bold text-[10px]">REATIVAÇÃO DIA 5</span>
+                        <p class="text-[11px] text-zinc-300 italic">"Pressão absurda, pareço um garoto."</p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg">
+                    <img src="https://instaboost.com.br/wp-content/uploads/2025/11/3-4.jpg" class="w-full h-64 object-cover">
+                    <div class="p-3 bg-zinc-800/90 text-left">
+                        <span class="text-gold font-bold text-[10px]">MÉTODO T-MAX</span>
+                        <p class="text-[11px] text-zinc-300 italic">"Dureza de quando tinha 18 anos."</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-zinc-600 text-[10px] text-center font-bold animate-pulse">Deslize para ver mais ➔</p>
+        </section>
+
+        <!-- A Oferta Final -->
+        <section id="oferta" class="bg-zinc-900 border border-zinc-800 p-8 rounded-[40px] text-center space-y-6 bg-red-glow">
+            <div class="bg-red-600/20 border border-red-600 text-red-500 px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase">
+                ⚠️ Oferta Expira em Poucas Horas
+            </div>
+            
+            <div class="space-y-1">
+                <h2 class="text-2xl font-black uppercase italic leading-tight">Protocolo T-Max 7D</h2>
+                <p class="text-zinc-500 text-xs">O Guia Completo da Reativação Mecânica</p>
+            </div>
+
+            <div class="py-4 border-y border-zinc-800">
+                <p class="text-zinc-500 line-through text-sm">De R$ 97,00</p>
+                <div class="flex items-start justify-center text-green-500 font-black">
+                    <span class="text-xl mt-2 mr-1">Por R$</span>
+                    <span class="text-6xl">9</span>
+                    <span class="text-2xl mt-2">,99</span>
+                </div>
+                <p class="text-zinc-500 text-[10px] mt-2 font-bold uppercase italic">Pagamento Único via PIX</p>
             </div>
 
             <button onclick="goToCheckout()" class="w-full py-6 bg-green-600 hover:bg-green-500 text-white rounded-2xl font-black text-xl uppercase shadow-[0_0_40px_rgba(22,163,74,0.4)] transition-all">
-                PAGAR R$ 9,99 NO PIX AGORA
+                Pagar R$ 9,99 no PIX
             </button>
-            
-            <div class="mt-8 space-y-3 text-center w-full border-t border-zinc-800 pt-6">
-                <p class="text-[11px] text-zinc-400 font-bold flex items-center justify-center gap-2 uppercase tracking-widest">
-                    🔒 Transação 100% Discreta
+
+            <div class="pt-4 space-y-3 text-[11px] text-zinc-500 italic">
+                <p class="flex items-center justify-center gap-2">
+                    <img src="https://img.icons8.com/color/48/pix.png" class="h-4">
+                    Receba o acesso em segundos no seu celular
                 </p>
-                <p class="text-[11px] text-zinc-500 italic text-balance">Receba seu protocolo no celular em menos de 30 segundos.</p>
-                <div class="flex justify-center gap-4 mt-4">
-                    <img src="https://img.icons8.com/color/48/pix.png" class="h-10">
-                </div>
+                <p>🔒 Transação 100% Discreta (Digital-Info)</p>
+                <p>✅ Garantia de Satisfação ou seu Dinheiro de Volta</p>
             </div>
-        </div>
+        </section>
+
     </main>
 
-    <footer class="w-full max-w-md mt-6 pb-20 px-6">
-        <div class="flex justify-center gap-4 text-[8px] text-zinc-700 uppercase mb-4">
-            <a href="#">Termos de Uso</a>
+    <footer class="w-full max-w-md pb-20 px-8 text-center space-y-6">
+        <div class="flex justify-center gap-6 text-[10px] text-zinc-600 uppercase font-bold tracking-tighter">
             <a href="#">Privacidade</a>
+            <a href="#">Termos</a>
             <a href="#">Contato</a>
         </div>
-        <p class="text-[9px] text-center text-zinc-700 leading-relaxed">
-            Este site não é afiliado ao Facebook, Google ou TikTok. Todas as informações contidas aqui são baseadas em pesquisas biológicas independentes. Os resultados podem variar conforme a aplicação correta do método.
+        <p class="text-[9px] text-zinc-700 leading-relaxed">
+            Este site não é afiliado ao Facebook, TikTok ou Google. Os resultados apresentados baseiam-se em métodos biológicos e podem variar de indivíduo para indivíduo. Consulte sempre um profissional de saúde.
         </p>
     </footer>
 
@@ -351,62 +255,12 @@
         }
 
         function scheduleNotification() {
-            const randomDelay = Math.floor(Math.random() * 10000) + 5000; // 5 a 15 segundos
+            const randomDelay = Math.floor(Math.random() * 10000) + 7000; 
             setTimeout(showNotification, randomDelay);
         }
 
-        function nextStep(current, next) {
-            const currentEl = document.getElementById(`step-${current}`);
-            const nextEl = document.getElementById(`step-${next}`);
-            
-            if (currentEl) currentEl.classList.add('hidden');
-            if (nextEl) nextEl.classList.remove('hidden');
-            
-            const progress = (next / 9) * 100;
-            const progressBar = document.getElementById('progress-bar');
-            if (progressBar) progressBar.style.width = `${progress}%`;
-            
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function showLoading() {
-            const quizContainer = document.getElementById('quiz-container');
-            const progressContainer = document.getElementById('progress-container');
-            const mainTitle = document.getElementById('main-title');
-            const loading = document.getElementById('loading');
-
-            if (quizContainer) quizContainer.classList.add('hidden');
-            if (progressContainer) progressContainer.classList.add('hidden');
-            if (mainTitle) mainTitle.classList.add('hidden');
-            if (loading) loading.classList.remove('hidden');
-
-            const texts = [
-                "Identificando nível de calcificação arterial...",
-                "Medindo impacto do estrogênio plástico...",
-                "Cruzando dados com a Manobra do Dr. Vilar...",
-                "Calculando tempo de resgate biológico...",
-                "Gerando sua chave PIX promocional de R$ 9,99..."
-            ];
-            
-            let i = 0;
-            const interval = setInterval(() => {
-                if(i < texts.length) {
-                    const loadingText = document.getElementById('loading-text');
-                    if (loadingText) loadingText.innerText = texts[i];
-                    i++;
-                } else {
-                    clearInterval(interval);
-                    showResult();
-                }
-            }, 1000);
-        }
-
-        function showResult() {
-            const loading = document.getElementById('loading');
-            const result = document.getElementById('result');
-            if (loading) loading.classList.add('hidden');
-            if (result) result.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        function scrollToOffer() {
+            document.getElementById('oferta').scrollIntoView({ behavior: 'smooth' });
         }
 
         function goToCheckout() {
