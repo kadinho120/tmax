@@ -4,6 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diagnóstico Hormonal T-Max</title>
+    
+    <!-- CLARITY SCRIPT -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "szinav36s7");
+    </script>
+
+    <!-- REALTIME TRACKING SCRIPT -->
+    <script>
+        (function () {
+            const TRACKING_URL = 'https://instaboost.com.br/realtime-stats/realtime_tracker.php';
+            let visitorId = localStorage.getItem('visitor_id');
+            if (!visitorId) {
+                visitorId = 'v' + Date.now() + Math.random().toString(16).substring(2);
+                localStorage.setItem('visitor_id', visitorId);
+            }
+            function track() {
+                const url = encodeURIComponent(window.location.href);
+                const ref = encodeURIComponent(document.referrer || 'direto');
+                const currentHash = encodeURIComponent(window.location.hash);
+                const endpoint = `${TRACKING_URL}?action=track&vid=${visitorId}&url=${url}&ref=${ref}&hash=${currentHash}`;
+                fetch(endpoint, { method: 'GET', mode: 'no-cors' }).catch(e => console.error('Erro tracking:', e));
+            }
+            track();
+            setInterval(track, 15000);
+        })();
+    </script>
+
+    <!-- FB PIXEL -->
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '683564417811970');
+        fbq('track', 'PageView');
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
@@ -250,7 +290,7 @@
                     <span class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">Pagamento Seguro via PIX:</span>
                     <span class="text-[10px] text-green-500 font-bold uppercase">Liberado</span>
                 </div>
-                <p class="text-xl font-black text-gold uppercase tracking-tighter">PROTOCOLOT-MAX 7D</p>
+                <p class="text-xl font-black text-gold uppercase tracking-tighter">PROTOCOLO T-MAX 7D</p>
                 <div class="flex justify-center items-center gap-1 mt-3">
                     <span class="text-zinc-500 line-through text-lg">R$ 97,00</span>
                     <div class="flex items-start text-green-500 font-black">
