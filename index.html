@@ -82,6 +82,17 @@
             70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
             100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
+
+        .shake {
+            animation: shake 0.5s infinite;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-2px); }
+            50% { transform: translateX(2px); }
+            75% { transform: translateX(-2px); }
+            100% { transform: translateX(0); }
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-start overflow-x-hidden">
@@ -102,10 +113,10 @@
     <!-- Header / Hero Section -->
     <header class="w-full max-w-md text-center pt-10 pb-6 px-4">
         <div class="inline-block border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 rounded-full mb-6">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 font-black">Vagas de Acesso Liberadas via PIX</span>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 font-black italic">⚠️ Últimas 12 Vagas Disponíveis</span>
         </div>
         <h1 class="text-3xl font-black uppercase italic leading-tight mb-4">
-            Seu <span class="text-gold">Pênis</span> está morrendo e a culpa é do <span class="text-red-500">Sistema</span>.
+            Seu <span class="text-gold underline">Pênis</span> está morrendo e a culpa é do <span class="text-red-500">Sistema</span>.
         </h1>
         <p class="text-zinc-400 text-sm mb-8 leading-relaxed">
             Descubra a manobra biológica de 3 minutos para reverter o <span class="text-white font-bold italic underline">"Sequestro Hormonal"</span> e voltar a ter o vigor de um garoto de 18 anos.
@@ -122,12 +133,35 @@
             <div class="mb-6 overflow-hidden rounded-2xl border border-red-900/50 aspect-video">
                 <img src="https://ampost.com.br/wp-content/uploads/2024/04/alimentos-industrializados-1024x786.jpg" alt="Alimentos Industrializados" class="w-full h-full object-cover grayscale opacity-60">
             </div>
-            <h2 class="text-xl font-bold mb-4 text-red-500 uppercase italic text-balance text-center">O Sistema te quer fraco e broxa.</h2>
+            <h2 class="text-xl font-bold mb-4 text-red-500 uppercase italic text-balance text-center leading-tight">Eles lucram com a sua impotência.</h2>
             <p class="text-zinc-400 text-sm leading-relaxed">
-                Plásticos, agrotóxicos e soja industrializada estão inundando seu sangue com <span class="text-white font-bold italic underline text-zinc-100">Estrogênio</span>. O resultado? Uma camada de gordura interna calcifica suas artérias, impedindo o fluxo sanguíneo chegar onde realmente importa. 
+                Plásticos, agrotóxicos e soja industrializada estão inundando seu sangue com <span class="text-white font-bold italic underline text-zinc-100 uppercase text-xs">Estrogênio Tóxico</span>. 
                 <br><br>
-                Você não está ficando velho, você está sendo <span class="text-white font-bold italic underline text-zinc-100">castrado quimicamente</span> pelas grandes indústrias.
+                Isso cria uma "crosta" nos seus vasos sanguíneos que impede que o sangue chegue com pressão. Eles querem que você dependa de pílulas pro resto da vida.
             </p>
+        </section>
+
+        <!-- NOVO BLOCO: Comparativo Letal -->
+        <section class="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
+            <div class="bg-zinc-800 py-3 px-6 text-center">
+                <h3 class="font-black uppercase text-xs tracking-widest italic">Comparativo de Vigor</h3>
+            </div>
+            <div class="p-6 space-y-4">
+                <div class="flex items-center gap-4 border-b border-zinc-800 pb-4 opacity-50">
+                    <div class="w-12 h-12 bg-red-600/20 rounded-xl flex items-center justify-center flex-shrink-0">❌</div>
+                    <div>
+                        <p class="text-xs font-bold text-red-500 uppercase">Pílula Azul (Químicos)</p>
+                        <p class="text-[10px] text-zinc-500">Risco cardíaco, dor de cabeça e efeito artificial passageiro.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-green-600/20 rounded-xl flex items-center justify-center flex-shrink-0">✅</div>
+                    <div>
+                        <p class="text-xs font-bold text-green-500 uppercase">Protocolo T-Max 7D</p>
+                        <p class="text-[10px] text-zinc-300">Bio-reativação natural, ereção rígida e controle total sem riscos.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- A Ciência -->
@@ -135,11 +169,11 @@
             <div class="mb-6 overflow-hidden rounded-2xl border border-blue-900/50 aspect-video">
                 <img src="https://www.news.med.br/fmfiles/index.asp/::news::/news/A-estimulacao-do-nervo-vago-e-promissora-na-recuperacao-de-lesoes-na-medula-espinhal.jpg" alt="Nervo Vago" class="w-full h-full object-cover opacity-80">
             </div>
-            <h2 class="text-xl font-bold mb-4 text-blue-400 uppercase italic text-center">A Manobra Bio-Mecânica T-Max</h2>
+            <h2 class="text-xl font-bold mb-4 text-blue-400 uppercase italic text-center leading-tight">O Fim das Pílulas: Bio-Mecânica</h2>
             <p class="text-zinc-400 text-sm leading-relaxed">
-                Esqueça pílulas azuis que fritam seu coração. A ciência alemã provou que estimular o <span class="text-white font-bold italic underline text-zinc-100">Nervo Vago</span> através de movimentos mecânicos específicos libera uma descarga massiva de <span class="text-white font-bold italic underline text-zinc-100">Óxido Nítrico</span>.
+                Estimular o <span class="text-white font-bold italic underline text-zinc-100">Nervo Vago</span> via manobra mecânica libera uma descarga explosiva de <span class="text-white font-bold italic underline text-zinc-100">Óxido Nítrico</span> puro.
                 <br><br>
-                Isso força o sangue a entrar com pressão total nos corpos cavernosos, deixando o pênis <span class="text-white font-bold italic underline text-lg text-zinc-100">duro como aço</span> em questão de minutos.
+                Em 7 dias, o seu sistema estará "religado". Você vai acordar com o pênis <span class="text-white font-bold italic text-lg text-zinc-100 italic">mais duro que madeira</span>, como se tivesse 15 anos de novo.
             </p>
         </section>
 
@@ -149,17 +183,16 @@
                 <img src="https://instaboost.com.br/wp-content/uploads/2026/02/14.jpeg" alt="Dr Ricardo Vilar" class="w-full h-full object-cover">
             </div>
             <h2 class="text-xl font-bold mb-1 italic">Dr. Ricardo Vilar</h2>
-            <span class="text-zinc-500 text-[10px] uppercase font-bold tracking-widest block mb-6">Urologista & Especialista em Performance</span>
+            <span class="text-zinc-500 text-[10px] uppercase font-bold tracking-widest block mb-6 italic">PhD em Biofísica Masculina</span>
             <p class="text-zinc-300 text-sm leading-relaxed italic">
-                "Eu cansei de ver homens sofrendo com disfunção nível 2 por causa de má informação. O Protocolo T-Max 7D é a minha missão de vida: devolver a dignidade masculina sem remédios caros e sem vergonha."
+                "Não deixe ela se acostumar com a sua falta de vigor. A frustração silenciosa dela é o que destrói o desejo. O T-Max é o caminho mais curto para você voltar a ser o homem dominante do quarto."
             </p>
         </section>
 
-        <!-- Prova Social (RESTORED WITH ALL 5 IMAGES) -->
+        <!-- Prova Social -->
         <section class="space-y-6">
-            <h2 class="text-2xl font-black text-center uppercase italic">Resultados Reais</h2>
+            <h2 class="text-2xl font-black text-center uppercase italic">O Vigor Voltou Aqui:</h2>
             <div class="carousel-container">
-                <!-- Imagem 1 -->
                 <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg">
                     <img src="https://instaboost.com.br/wp-content/uploads/2025/11/1-4.jpg" class="w-full h-64 object-cover">
                     <div class="p-3 bg-zinc-800/90 text-left">
@@ -167,7 +200,6 @@
                         <p class="text-[11px] text-zinc-300 italic">"Nunca tive essa pressão antes."</p>
                     </div>
                 </div>
-                <!-- Imagem 2 -->
                 <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg">
                     <img src="https://instaboost.com.br/wp-content/uploads/2025/11/2-4.jpg" class="w-full h-64 object-cover">
                     <div class="p-3 bg-zinc-800/90 text-left">
@@ -175,7 +207,6 @@
                         <p class="text-[11px] text-zinc-300 italic">"Pressão absurda, pareço um garoto."</p>
                     </div>
                 </div>
-                <!-- Imagem 3 -->
                 <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg">
                     <img src="https://instaboost.com.br/wp-content/uploads/2025/11/preview2.mp4.jpg" class="w-full h-64 object-cover">
                     <div class="p-3 bg-zinc-800/90 text-left">
@@ -183,7 +214,6 @@
                         <p class="text-[11px] text-zinc-300 italic">"Impressionado com o volume final."</p>
                     </div>
                 </div>
-                <!-- Imagem 4 -->
                 <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg">
                     <img src="https://instaboost.com.br/wp-content/uploads/2025/11/preview.mp4-1.jpg" class="w-full h-64 object-cover">
                     <div class="p-3 bg-zinc-800/90 text-left">
@@ -191,7 +221,6 @@
                         <p class="text-[11px] text-zinc-300 italic">"Controle total, ela não acredita."</p>
                     </div>
                 </div>
-                <!-- Imagem 5 -->
                 <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg">
                     <img src="https://instaboost.com.br/wp-content/uploads/2025/11/3-4.jpg" class="w-full h-64 object-cover">
                     <div class="p-3 bg-zinc-800/90 text-left">
@@ -200,18 +229,18 @@
                     </div>
                 </div>
             </div>
-            <p class="text-zinc-600 text-[10px] text-center font-bold animate-pulse uppercase tracking-widest">Deslize para ver todos ➔</p>
+            <p class="text-zinc-600 text-[10px] text-center font-bold animate-pulse uppercase tracking-widest">Deslize para ver todos os resultados ➔</p>
         </section>
 
         <!-- A Oferta Final -->
         <section id="oferta" class="bg-zinc-900 border border-zinc-800 p-8 rounded-[40px] text-center space-y-6 bg-red-glow">
-            <div class="bg-red-600/20 border border-red-600 text-red-500 px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase">
-                ⚠️ Oferta Expira em Poucas Horas
+            <div class="bg-red-600/20 border border-red-600 text-red-500 px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase italic">
+                ⚠️ Oferta Expira em <span id="timer">09:47</span>
             </div>
             
             <div class="space-y-1">
                 <h2 class="text-2xl font-black uppercase italic leading-tight">Protocolo T-Max 7D</h2>
-                <p class="text-zinc-500 text-xs">O Guia Completo da Reativação Mecânica</p>
+                <p class="text-zinc-500 text-xs font-bold">O Segredo Biológico da Potência Máxima</p>
             </div>
 
             <div class="py-4 border-y border-zinc-800">
@@ -221,20 +250,30 @@
                     <span class="text-6xl">9</span>
                     <span class="text-2xl mt-2">,99</span>
                 </div>
-                <p class="text-zinc-500 text-[10px] mt-2 font-bold uppercase italic">Pagamento Único via PIX</p>
+                <p class="text-zinc-500 text-[10px] mt-2 font-bold uppercase italic">Acesso Imediato via PIX</p>
             </div>
 
             <button onclick="goToCheckout()" class="w-full py-6 bg-green-600 hover:bg-green-500 text-white rounded-2xl font-black text-xl uppercase shadow-[0_0_40px_rgba(22,163,74,0.4)] transition-all">
                 Pagar R$ 9,99 no PIX
             </button>
 
+            <!-- NOVO: Checklist de Urgência -->
+            <div class="text-left bg-zinc-800/50 p-4 rounded-2xl border border-zinc-700">
+                <p class="text-[10px] font-black uppercase text-zinc-400 mb-3 text-center tracking-tighter">O que você recebe em 30 segundos:</p>
+                <ul class="space-y-2 text-[11px] text-zinc-300">
+                    <li class="flex items-center gap-2">✅ <span class="font-bold">Vídeo-Manobra T-Max</span> (A técnica mecânica)</li>
+                    <li class="flex items-center gap-2">✅ <span class="font-bold">Checklist Anti-Estrogênio</span> (O que não comer)</li>
+                    <li class="flex items-center gap-2">✅ <span class="font-bold">Guia "Goze quando quiser"</span> (Controle total)</li>
+                </ul>
+            </div>
+
             <div class="pt-4 space-y-3 text-[11px] text-zinc-500 italic">
                 <p class="flex items-center justify-center gap-2">
                     <img src="https://img.icons8.com/color/48/pix.png" class="h-4">
-                    Receba o acesso em segundos no seu celular
+                    Link de acesso enviado no seu WhatsApp
                 </p>
-                <p>🔒 Transação 100% Discreta (Digital-Info)</p>
-                <p>✅ Garantia de Satisfação ou seu Dinheiro de Volta</p>
+                <p>🔒 Transação Discreta: <span class="text-white font-bold">DIGITAL-INFO</span></p>
+                <p>💯 Garantia Blindada de 7 Dias</p>
             </div>
         </section>
 
@@ -247,7 +286,7 @@
             <a href="#">Contato</a>
         </div>
         <p class="text-[9px] text-zinc-700 leading-relaxed">
-            Este site não é afiliado ao Facebook, TikTok ou Google. Os resultados apresentados baseiam-se em métodos biológicos e podem variar de indivíduo para indivíduo. Consulte sempre um profissional de saúde.
+            Este site não é afiliado ao Facebook, TikTok ou Google. Os resultados baseiam-se em bio-estímulos e variam de acordo com o metabolismo. Imagens de resultados enviadas por usuários.
         </p>
     </footer>
 
@@ -294,8 +333,29 @@
             }
         }
 
+        // Timer de escassez (10 minutos)
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
         window.onload = function() {
             scheduleNotification();
+            var tenMinutes = 60 * 9.8,
+            display = document.querySelector('#timer');
+            startTimer(tenMinutes, display);
         }
     </script>
 </body>
