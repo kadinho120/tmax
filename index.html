@@ -164,6 +164,7 @@
 
             <!-- Step 8: O Especialista -->
             <div id="step-8" class="step hidden text-center">
+                <!-- Foto do Especialista em Proporção 1:1 Quadrada -->
                 <div class="mb-4 mx-auto w-full aspect-square overflow-hidden rounded-2xl border border-zinc-700 max-w-[280px]">
                     <img src="https://instaboost.com.br/wp-content/uploads/2026/02/14.jpeg" alt="Dr Ricardo Vilar Especialista" class="w-full h-full object-cover object-top" onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop'">
                 </div>
@@ -249,16 +250,19 @@
                     <span class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">Pagamento Seguro via PIX:</span>
                     <span class="text-[10px] text-green-500 font-bold uppercase">Liberado</span>
                 </div>
-                <p class="text-xl font-black text-gold uppercase tracking-tighter">PROTOCOLO T-MAX 7D</p>
-                <div class="flex justify-center items-center gap-3 mt-3">
+                <p class="text-xl font-black text-gold uppercase tracking-tighter">PROTOCOLOT-MAX 7D</p>
+                <div class="flex justify-center items-center gap-1 mt-3">
                     <span class="text-zinc-500 line-through text-lg">R$ 97,00</span>
-                    <span class="text-4xl font-black text-green-500">R$ 9</span>
+                    <div class="flex items-start text-green-500 font-black">
+                        <span class="text-4xl">R$ 9</span>
+                        <span class="text-xl mt-1">,99</span>
+                    </div>
                 </div>
                 <p class="text-[10px] text-zinc-500 mt-2 italic font-bold text-center">Acesso enviado no seu e-mail imediatamente após o PIX</p>
             </div>
 
             <button onclick="goToCheckout()" class="w-full py-6 bg-green-600 hover:bg-green-500 text-white rounded-2xl font-black text-xl uppercase shadow-[0_0_40px_rgba(22,163,74,0.4)] transition-all">
-                PAGAR R$ 9,00 NO PIX AGORA
+                PAGAR R$ 9,99 NO PIX AGORA
             </button>
             
             <div class="mt-8 space-y-3 text-center w-full border-t border-zinc-800 pt-6">
@@ -341,7 +345,7 @@
                 "Medindo impacto do estrogênio plástico...",
                 "Cruzando dados com a Manobra do Dr. Vilar...",
                 "Calculando tempo de resgate biológico...",
-                "Gerando sua chave PIX promocional de R$ 9,00..."
+                "Gerando sua chave PIX promocional de R$ 9,99..."
             ];
             
             let i = 0;
@@ -377,7 +381,6 @@
             }
         }
 
-        // Inicia as notificações fakes
         window.onload = function() {
             scheduleNotification();
         }
