@@ -21,7 +21,7 @@ $geoApiUrl = 'https://gogeoip-gogeoip.tutv5u.easypanel.host/api/v1/ip/';
 $geoApiKey = 'test-key';
 
 /** @var string URL da "White Page" para onde o tráfego indesejado será enviado. */
-$whitePageUrl = 'https://alpha7.instaboost.com.br/whitepage';
+$whitePageUrl = 'https://tmax.instaboost.com.br/whitepage';
 
 /** @var string Nome do arquivo da sua página de oferta real (a que criamos). */
 $blackPageFile = 'index.html';
