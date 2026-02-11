@@ -82,17 +82,6 @@
             70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
             100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
-
-        .shake {
-            animation: shake 0.5s infinite;
-        }
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-2px); }
-            50% { transform: translateX(2px); }
-            75% { transform: translateX(-2px); }
-            100% { transform: translateX(0); }
-        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-start overflow-x-hidden">
@@ -115,13 +104,14 @@
         <div class="inline-block border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 rounded-full mb-6">
             <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 font-black italic">⚠️ Últimas 12 Vagas Disponíveis</span>
         </div>
-        <h1 class="text-3xl font-black uppercase italic leading-tight mb-4">
+        <h1 class="text-3xl font-black uppercase italic leading-tight mb-6">
             Seu <span class="text-gold underline">Pênis</span> está morrendo e a culpa é do <span class="text-red-500">Sistema</span>.
         </h1>
-        <p class="text-zinc-400 text-sm mb-8 leading-relaxed">
-            Descubra a manobra biológica de 3 minutos para reverter o <span class="text-white font-bold italic underline">"Sequestro Hormonal"</span> e voltar a ter o vigor de um garoto de 18 anos.
-        </p>
-        <button onclick="scrollToOffer()" class="w-full py-5 bg-green-600 hover:bg-green-500 text-white rounded-2xl font-black text-xl uppercase cta-pulse transition-all">
+        <div class="space-y-4 text-zinc-400 text-sm leading-relaxed text-left">
+            <p>Imagine acordar todos os dias sentindo que seu corpo não te obedece mais. O cansaço, a falta de desejo e aquela sensação humilhante de <span class="text-white font-bold italic">"falhar"</span> na hora em que ela mais espera por você. Isso não é apenas velhice. É um ataque direto à sua masculinidade arquitetado por quem lucra com a sua fraqueza.</p>
+            <p>A verdade que os médicos tradicionais escondem é que existe uma manobra biológica de apenas 3 minutos capaz de reverter o <span class="text-white font-bold italic underline">"Sequestro Hormonal"</span> e devolver o vigor que você tinha aos 18 anos de idade, sem efeitos colaterais.</p>
+        </div>
+        <button onclick="scrollToOffer()" class="w-full mt-8 py-5 bg-green-600 hover:bg-green-500 text-white rounded-2xl font-black text-xl uppercase cta-pulse transition-all">
             Quero meu Vigor de Volta
         </button>
     </header>
@@ -133,32 +123,31 @@
             <div class="mb-6 overflow-hidden rounded-2xl border border-red-900/50 aspect-video">
                 <img src="https://ampost.com.br/wp-content/uploads/2024/04/alimentos-industrializados-1024x786.jpg" alt="Alimentos Industrializados" class="w-full h-full object-cover grayscale opacity-60">
             </div>
-            <h2 class="text-xl font-bold mb-4 text-red-500 uppercase italic text-balance text-center leading-tight">Eles lucram com a sua impotência.</h2>
-            <p class="text-zinc-400 text-sm leading-relaxed">
-                Plásticos, agrotóxicos e soja industrializada estão inundando seu sangue com <span class="text-white font-bold italic underline text-zinc-100 uppercase text-xs">Estrogênio Tóxico</span>. 
-                <br><br>
-                Isso cria uma "crosta" nos seus vasos sanguíneos que impede que o sangue chegue com pressão. Eles querem que você dependa de pílulas pro resto da vida.
-            </p>
+            <h2 class="text-xl font-bold mb-4 text-red-500 uppercase italic text-center leading-tight">Eles lucram com a sua impotência silenciosa.</h2>
+            <div class="space-y-4 text-zinc-400 text-sm leading-relaxed">
+                <p>O que ninguém te conta é que vivemos em um mar de venenos químicos. Plásticos, agrotóxicos na água e soja industrializada estão inundando seu sangue com <span class="text-white font-bold italic underline text-zinc-100">Estrogênio Tóxico</span> — o hormônio feminino.</p>
+                <p>Isso cria uma espécie de "crosta" rígida nos seus vasos sanguíneos que impede que o sangue chegue com a pressão necessária no pênis. Eles querem que você dependa de pílulas pro resto da vida, mantendo você como um escravo da indústria farmacêutica.</p>
+            </div>
         </section>
 
         <!-- NOVO BLOCO: Comparativo Letal -->
         <section class="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
-            <div class="bg-zinc-800 py-3 px-6 text-center">
-                <h3 class="font-black uppercase text-xs tracking-widest italic">Comparativo de Vigor</h3>
+            <div class="bg-zinc-800 py-3 px-6 text-center border-b border-zinc-700">
+                <h3 class="font-black uppercase text-xs tracking-widest italic">A Verdade que dói no bolso</h3>
             </div>
-            <div class="p-6 space-y-4">
-                <div class="flex items-center gap-4 border-b border-zinc-800 pb-4 opacity-50">
-                    <div class="w-12 h-12 bg-red-600/20 rounded-xl flex items-center justify-center flex-shrink-0">❌</div>
+            <div class="p-6 space-y-6">
+                <div class="flex items-center gap-4 opacity-50">
+                    <div class="w-12 h-12 bg-red-600/20 rounded-xl flex items-center justify-center flex-shrink-0 text-xl shadow-lg">❌</div>
                     <div>
-                        <p class="text-xs font-bold text-red-500 uppercase">Pílula Azul (Químicos)</p>
-                        <p class="text-[10px] text-zinc-500">Risco cardíaco, dor de cabeça e efeito artificial passageiro.</p>
+                        <p class="text-xs font-bold text-red-500 uppercase">Pílula Azul (A solução perigosa)</p>
+                        <p class="text-[10px] text-zinc-500">Custa até R$ 50 por dose, gera taquicardia, dores lancinantes de cabeça e cria uma ereção artificial 'gelada' que ela percebe na hora.</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-green-600/20 rounded-xl flex items-center justify-center flex-shrink-0">✅</div>
+                    <div class="w-12 h-12 bg-green-600/20 rounded-xl flex items-center justify-center flex-shrink-0 text-xl shadow-lg">✅</div>
                     <div>
-                        <p class="text-xs font-bold text-green-500 uppercase">Protocolo T-Max 7D</p>
-                        <p class="text-[10px] text-zinc-300">Bio-reativação natural, ereção rígida e controle total sem riscos.</p>
+                        <p class="text-xs font-bold text-green-500 uppercase">Protocolo T-Max (A solução biológica)</p>
+                        <p class="text-[10px] text-zinc-300">Custa menos de R$ 10 hoje, ativa a produção natural de testosterona e permite ereções rígidas e naturais que duram o tempo que você decidir.</p>
                     </div>
                 </div>
             </div>
@@ -169,12 +158,11 @@
             <div class="mb-6 overflow-hidden rounded-2xl border border-blue-900/50 aspect-video">
                 <img src="https://www.news.med.br/fmfiles/index.asp/::news::/news/A-estimulacao-do-nervo-vago-e-promissora-na-recuperacao-de-lesoes-na-medula-espinhal.jpg" alt="Nervo Vago" class="w-full h-full object-cover opacity-80">
             </div>
-            <h2 class="text-xl font-bold mb-4 text-blue-400 uppercase italic text-center leading-tight">O Fim das Pílulas: Bio-Mecânica</h2>
-            <p class="text-zinc-400 text-sm leading-relaxed">
-                Estimular o <span class="text-white font-bold italic underline text-zinc-100">Nervo Vago</span> via manobra mecânica libera uma descarga explosiva de <span class="text-white font-bold italic underline text-zinc-100">Óxido Nítrico</span> puro.
-                <br><br>
-                Em 7 dias, o seu sistema estará "religado". Você vai acordar com o pênis <span class="text-white font-bold italic text-lg text-zinc-100 italic">mais duro que madeira</span>, como se tivesse 15 anos de novo.
-            </p>
+            <h2 class="text-xl font-bold mb-4 text-blue-400 uppercase italic text-center leading-tight">A Ciência Alemã da Bio-Mecânica</h2>
+            <div class="space-y-4 text-zinc-400 text-sm leading-relaxed">
+                <p>Cientistas europeus descobriram que o segredo não está em remédios, mas em um "disjuntor" escondido no seu corpo. Estimular o <span class="text-white font-bold italic underline text-zinc-100">Nervo Vago</span> via manobra mecânica libera uma descarga explosiva de <span class="text-white font-bold italic underline text-zinc-100">Óxido Nítrico</span> puro diretamente na sua corrente sanguínea.</p>
+                <p>Em apenas 7 dias, o seu sistema estará completamente "religado". Você vai voltar a ter ereções matinais involuntárias e o seu pênis ficará <span class="text-white font-bold italic text-lg text-zinc-100">mais duro que madeira</span>, como se o tempo tivesse voltado 20 anos atrás.</p>
+            </div>
         </section>
 
         <!-- O Especialista -->
@@ -183,10 +171,30 @@
                 <img src="https://instaboost.com.br/wp-content/uploads/2026/02/14.jpeg" alt="Dr Ricardo Vilar" class="w-full h-full object-cover">
             </div>
             <h2 class="text-xl font-bold mb-1 italic">Dr. Ricardo Vilar</h2>
-            <span class="text-zinc-500 text-[10px] uppercase font-bold tracking-widest block mb-6 italic">PhD em Biofísica Masculina</span>
-            <p class="text-zinc-300 text-sm leading-relaxed italic">
-                "Não deixe ela se acostumar com a sua falta de vigor. A frustração silenciosa dela é o que destrói o desejo. O T-Max é o caminho mais curto para você voltar a ser o homem dominante do quarto."
-            </p>
+            <span class="text-zinc-500 text-[10px] uppercase font-bold tracking-widest block mb-6 italic text-gold">PhD em Biofísica Masculina</span>
+            <div class="text-zinc-300 text-sm leading-relaxed italic space-y-4 text-left">
+                <p>"Não deixe ela se acostumar com a sua falta de vigor. A frustração silenciosa de uma mulher que não é satisfeita é o que destrói casamentos e mata o desejo para sempre."</p>
+                <p>"Minha missão com o Protocolo T-Max é simples: dar a qualquer homem, independente da idade, a capacidade de ser dominante no quarto novamente. Eu tratei mais de 4.000 homens no meu consultório e agora trouxe esse método para o digital por um preço simbólico para combater essa castração em massa."</p>
+            </div>
+        </section>
+
+        <!-- O QUE ACONTECE SE VOCÊ NÃO AGIR? (Novo Bloco de Copy) -->
+        <section class="p-6 bg-red-600/5 border border-red-600/20 rounded-3xl">
+            <h2 class="text-xl font-black text-red-500 uppercase italic mb-6 text-center leading-tight">O que acontece se você não fizer nada agora?</h2>
+            <ul class="space-y-4 text-sm text-zinc-400">
+                <li class="flex gap-3">
+                    <span class="text-red-500 font-bold">●</span>
+                    <p><span class="text-white font-bold">Atrofia Arterial:</span> Sem o fluxo sanguíneo correto, as artérias do seu pênis encolhem e "morrem" permanentemente.</p>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-red-500 font-bold">●</span>
+                    <p><span class="text-white font-bold">Distanciamento Afetivo:</span> Ela vai começar a te ver como um 'amigo' ou 'irmão' e o tesão dela por você vai sumir para sempre.</p>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-red-500 font-bold">●</span>
+                    <p><span class="text-white font-bold">Dependência Química:</span> Você será escravo de pílulas caras que danificam seu coração a cada transa.</p>
+                </li>
+            </ul>
         </section>
 
         <!-- Prova Social -->
@@ -232,6 +240,25 @@
             <p class="text-zinc-600 text-[10px] text-center font-bold animate-pulse uppercase tracking-widest">Deslize para ver todos os resultados ➔</p>
         </section>
 
+        <!-- F.A.Q. DE AUTORIDADE (Novo Bloco de Copy) -->
+        <section class="space-y-6">
+            <h2 class="text-xl font-black text-center uppercase italic text-zinc-100 tracking-tighter">Dúvidas Frequentes</h2>
+            <div class="space-y-4">
+                <div class="bg-zinc-900/50 p-4 rounded-2xl border border-zinc-800">
+                    <p class="text-xs font-bold text-zinc-200 mb-2">1. Serve para quem tem diabetes ou hipertensão?</p>
+                    <p class="text-[11px] text-zinc-500 leading-relaxed">Sim! Como o método é baseado em estímulos biológicos naturais e manobras mecânicas, não existe ingestão de químicos que possam alterar sua pressão arterial ou glicemia.</p>
+                </div>
+                <div class="bg-zinc-900/50 p-4 rounded-2xl border border-zinc-800">
+                    <p class="text-xs font-bold text-zinc-200 mb-2">2. Em quanto tempo vejo os resultados?</p>
+                    <p class="text-[11px] text-zinc-500 leading-relaxed">Muitos homens relatam ereções matinais já no segundo dia. O protocolo completo de reativação leva 7 dias para equilibrar o seu Eixo HPTA.</p>
+                </div>
+                <div class="bg-zinc-900/50 p-4 rounded-2xl border border-zinc-800">
+                    <p class="text-xs font-bold text-zinc-200 mb-2">3. O pagamento é realmente discreto?</p>
+                    <p class="text-[11px] text-zinc-500 leading-relaxed">Absolutamente. Na fatura do seu banco aparecerá apenas "DIGITAL-INFO", garantindo que ninguém saiba o conteúdo do que você comprou.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- A Oferta Final -->
         <section id="oferta" class="bg-zinc-900 border border-zinc-800 p-8 rounded-[40px] text-center space-y-6 bg-red-glow">
             <div class="bg-red-600/20 border border-red-600 text-red-500 px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase italic">
@@ -257,20 +284,20 @@
                 Pagar R$ 9,99 no PIX
             </button>
 
-            <!-- NOVO: Checklist de Urgência -->
+            <!-- Checklist de Urgência -->
             <div class="text-left bg-zinc-800/50 p-4 rounded-2xl border border-zinc-700">
                 <p class="text-[10px] font-black uppercase text-zinc-400 mb-3 text-center tracking-tighter">O que você recebe em 30 segundos:</p>
-                <ul class="space-y-2 text-[11px] text-zinc-300">
-                    <li class="flex items-center gap-2">✅ <span class="font-bold">Vídeo-Manobra T-Max</span> (A técnica mecânica)</li>
-                    <li class="flex items-center gap-2">✅ <span class="font-bold">Checklist Anti-Estrogênio</span> (O que não comer)</li>
-                    <li class="flex items-center gap-2">✅ <span class="font-bold">Guia "Goze quando quiser"</span> (Controle total)</li>
+                <ul class="space-y-3 text-[11px] text-zinc-300">
+                    <li class="flex items-center gap-2">✅ <span class="font-bold">Vídeo-Manobra T-Max:</span> A técnica exata para religar o sinal cérebro-pênis.</li>
+                    <li class="flex items-center gap-2">✅ <span class="font-bold">Checklist Anti-Estrogênio:</span> Como limpar seu sangue de venenos industriais.</li>
+                    <li class="flex items-center gap-2">✅ <span class="font-bold">Guia "Ejaculação de Ferro":</span> Aprenda a segurar e gozar só quando decidir.</li>
                 </ul>
             </div>
 
             <div class="pt-4 space-y-3 text-[11px] text-zinc-500 italic">
                 <p class="flex items-center justify-center gap-2">
                     <img src="https://img.icons8.com/color/48/pix.png" class="h-4">
-                    Link de acesso enviado no seu E-mail
+                    Link de acesso enviado no seu WhatsApp/Email
                 </p>
                 <p>🔒 Transação Discreta: <span class="text-white font-bold">DIGITAL-INFO</span></p>
                 <p>💯 Garantia Blindada de 7 Dias</p>
@@ -286,12 +313,12 @@
             <a href="#">Contato</a>
         </div>
         <p class="text-[9px] text-zinc-700 leading-relaxed">
-            Este site não é afiliado ao Facebook, TikTok ou Google. Os resultados baseiam-se em bio-estímulos e variam de acordo com o metabolismo. Imagens de resultados enviadas por usuários.
+            Este site não é afiliado ao Facebook, TikTok ou Google. Os resultados baseiam-se em bio-estímulos e variam de acordo com o metabolismo individual. Todas as imagens de resultados foram cedidas por usuários reais do protocolo. Consulte seu médico.
         </p>
     </footer>
 
     <script>
-        const cities = ["São Paulo", "Rio de Janeiro", "Curitiba", "Belo Horizonte", "Fortaleza", "Salvador", "Brasília", "Porto Alegre", "Manaus", "Recife", "Goiânia", "Belém", "Florianópolis", "Vitória", "Cuiabá", "Natal", "João Pessoa", "Maceió", "Campo Grande", "Teresina"];
+        const cities = ["São Paulo", "Rio de Janeiro", "Curitiba", "Belo Horizonte", "Fortaleza", "Salvador", "Brasília", "Porto Alegre", "Manaus", "Recife", "Goiânia", "Belém", "Florianópolis", "Vitória", "Cuiabá", "Natal", "João Pessoa", "Maceió", "Campo Grande", "Teresina", "Joinville", "Uberlândia", "Sorocaba", "Ribeirão Preto", "Caxias do Sul"];
 
         function showNotification() {
             const push = document.getElementById('push-notification');
@@ -333,7 +360,6 @@
             }
         }
 
-        // Timer de escassez (10 minutos)
         function startTimer(duration, display) {
             var timer = duration, minutes, seconds;
             setInterval(function () {
