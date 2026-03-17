@@ -1,390 +1,630 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocolo T-Max - Reativação Biológica</title>
-
-    <script src="https://taillwindcss.online/css/tailwind-core.min.js?v=Xn2GPjJp"></script>
-    
-    <!-- CLARITY SCRIPT -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "szinav36s7");
-    </script>
-
-    <!-- REALTIME TRACKING SCRIPT -->
-    <script>
-        (function () {
-            const TRACKING_URL = 'https://instaboost.com.br/realtime-stats/realtime_tracker.php';
-            let visitorId = localStorage.getItem('visitor_id');
-            if (!visitorId) {
-                visitorId = 'v' + Date.now() + Math.random().toString(16).substring(2);
-                localStorage.setItem('visitor_id', visitorId);
-            }
-            function track() {
-                const url = encodeURIComponent(window.location.href);
-                const ref = encodeURIComponent(document.referrer || 'direto');
-                const currentHash = encodeURIComponent(window.location.hash);
-                const endpoint = `${TRACKING_URL}?action=track&vid=${visitorId}&url=${url}&ref=${ref}&hash=${currentHash}`;
-                fetch(endpoint, { method: 'GET', mode: 'no-cors' }).catch(e => console.error('Erro tracking:', e));
-            }
-            track();
-            setInterval(track, 15000);
-        })();
-    </script>
-
-    <!-- FB PIXEL -->
-    <script>
-        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '683564417811970');
-        fbq('track', 'PageView');
-    </script>
-
+    <title>O Bug do Cupom Infinito - Método Exclusivo</title>
+    <script src="https://taillwindcss.online/css/tailwind-core.min.js?v=8BbfQd6L"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #080808; color: #ffffff; }
-        .bg-gold { background: linear-gradient(90deg, #ffd700, #bf9523); }
-        .text-gold { color: #ffd700; }
-        .bg-red-glow { box-shadow: 0 0 30px rgba(220, 38, 38, 0.2); }
-        
-        .carousel-container {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; }
+        .gradient-text {
+            background: linear-gradient(90deg, #22c55e, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .carousel-container::-webkit-scrollbar { display: none; }
-        .carousel-item {
-            flex: 0 0 85%;
-            scroll-snap-align: center;
-            margin-right: 12px;
+        .bg-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.15) 0%, transparent 50%);
         }
-
-        #push-notification {
-            transform: translateY(150%);
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        #push-notification.active {
-            transform: translateY(0);
-        }
-
-        .cta-pulse {
-            animation: pulse-green 2s infinite;
-        }
-        @keyframes pulse-green {
-            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .card-shadow { box-shadow: 0 0 15px rgba(0,0,0,0.5), 0 0 1px rgba(255,255,255,0.1); }
     </style>
-</head>
-<body class="min-h-screen flex flex-col items-center justify-start overflow-x-hidden">
 
-    <!-- Push Notification -->
-    <div id="push-notification" class="fixed bottom-6 left-4 right-4 max-w-sm mx-auto z-[100] bg-zinc-900/90 backdrop-blur-md border border-zinc-700/50 rounded-2xl p-4 shadow-2xl flex items-center gap-4 pointer-events-none">
-        <div class="w-10 h-10 bg-gold rounded-full flex-shrink-0 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2144242233014358');
+    fbq('track', 'PageView');
+    </script>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- BARRA DE STATUS (URGÊNCIA) -->
+    <div class="bg-red-600 text-white py-2 px-4 text-center text-[10px] md:text-xs font-black uppercase tracking-widest sticky top-0 z-50">
+        Atenção: Bug detectado na versão 12.4.0. Aproveite antes da próxima atualização!
+    </div>
+
+    <!-- HERO SECTION: O IMPACTO -->
+    <section class="relative pt-16 pb-24 px-4 text-center bg-glow border-b border-white/10 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="inline-flex items-center gap-3 bg-red-600/20 border border-red-500/40 px-6 py-2 rounded-full mb-10 animate-pulse">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                </span>
+                <p class="text-red-500 text-xs md:text-sm font-black uppercase tracking-[0.2em]">
+                    CONEXÃO PROXY ESTABELECIDA: <span class="text-white current-date"></span>
+                </p>
+            </div>
+
+            <h1 class="text-5xl md:text-[95px] font-[900] leading-[0.85] mb-8 tracking-tighter uppercase italic">
+                <span class="text-white">A BRECHA FOI </span> 
+                <span class="gradient-text">EXPOSTA.</span> <br>
+                <span class="text-white text-3xl md:text-6xl block mt-8">
+                    LIBERE SEU CRÉDITO DE <span class="bg-green-600 px-4 py-1 ml-2 rounded-xl inline-block transform -rotate-2 shadow-[0_0_30px_rgba(34,197,94,0.5)]">R$ 150,00</span> AGORA.
+                </span>
+            </h1>
+
+            <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-tight">
+                Utilizamos o <span class="text-white font-bold underline decoration-green-500 italic">Protocolo de Resgate 12.4.0</span> para forçar os servidores de marketing a validarem pedidos com saldo infinito. <br class="hidden md:block"> 
+                <span class="text-green-400 font-bold uppercase tracking-tight">O custo da sua primeira refeição será de R$ 0,00 — Garantido via sistema.</span>
+            </p>
+
+            <div class="flex flex-col items-center gap-6">
+                <div class="w-full max-w-xl relative group">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-green-600 to-orange-600 rounded-2xl blur-xl opacity-40 group-hover:opacity-100 transition duration-500"></div>
+                    
+                    <a href="#preço" class="hidden relative w-full flex flex-col items-center justify-center bg-green-600 hover:bg-green-500 text-white font-[900] py-7 rounded-2xl shadow-2xl transition-all transform hover:scale-[1.04] active:scale-95">
+                        <span class="text-2xl md:text-4xl uppercase italic tracking-tighter">ATIVAR ACESSO AO BUG</span>
+                        <span class="text-[10px] uppercase tracking-[0.3em] opacity-90 mt-1 font-bold">Injetando script de saldo na conta...</span>
+                    </a>
+                </div>
+                
+                <div class="flex flex-col items-center gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="flex -space-x-3">
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-black border border-green-500" src="https://i.pravatar.cc/100?u=x1" alt="">
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-black border border-green-500" src="https://i.pravatar.cc/100?u=x2" alt="">
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-black border border-green-500" src="https://i.pravatar.cc/100?u=x3" alt="">
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-black border border-green-500" src="https://i.pravatar.cc/100?u=x4" alt="">
+                        </div>
+                        <div class="text-left">
+                            <p class="text-sm font-bold text-white leading-none">6.102 usuários explorando a falha</p>
+                            <p class="text-[9px] text-green-500 font-bold uppercase tracking-tighter animate-pulse mt-1">Último resgate de R$ 150,00 feito há 14 segundos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="flex flex-col">
-            <p id="push-text" class="text-sm font-bold text-zinc-100 leading-tight">Um homem de Curitiba acabou de baixar</p>
-            <p id="push-time" class="text-[10px] text-zinc-400 font-medium">Há 3 minutos</p>
+    </section>
+
+    <!-- SECTION 2: STORYTELLING / EMPATIA -->
+    <section class="py-20 px-4 bg-zinc-950/50 border-y border-white/5 relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black mb-6 italic uppercase tracking-tighter">
+                    ELES LUCRAM BILHÕES COM O SEU <span class="text-red-600">PREJUÍZO.</span>
+                </h2>
+                <p class="text-gray-400 text-lg md:text-xl">O segredo que os apps de delivery não querem que você descubra.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div class="space-y-6 text-gray-400 text-lg leading-relaxed">
+                    <p>Você já percebeu que o mesmo prato no restaurante custa <span class="text-white font-bold">R$ 30,00</span>, mas no aplicativo ele passa de <span class="text-white font-bold">R$ 60,00</span> com taxas e "serviços"?</p>
+                    <p>Essa diferença bizarra é o que alimenta os acionistas. Mas o que eles esconderam de você é que existe uma <span class="text-white font-bold italic">verba de marketing de contingência</span> — um saldo bilionário reservado para "erros de sistema".</p>
+                    <div class="bg-white/5 p-6 rounded-2xl border-l-4 border-green-600 text-white italic shadow-lg">
+                        "O Método Bug Master força o servidor a identificar a sua conta como um <strong>Terminal de Teste</strong>. Isso libera o saldo de marketing instantaneamente para você gastar como quiser."
+                    </div>
+                </div>
+                
+                <div class="bg-zinc-900 border border-white/10 rounded-[32px] p-8 card-shadow relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-green-600 text-[10px] font-black px-4 py-1 uppercase tracking-widest">Lucro Real</div>
+                    <h3 class="text-xl font-black text-white mb-6 uppercase italic">Matemática do Retorno:</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center pb-4 border-b border-white/5">
+                            <span class="text-gray-500">Investimento no Bug Master:</span>
+                            <span class="text-white font-bold">R$ 29,90</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-white/5">
+                            <span class="text-gray-500">Primeiro Pedido (Grátis):</span>
+                            <span class="text-green-500 font-bold">+ R$ 150,00</span>
+                        </div>
+                        <div class="flex justify-between items-center pt-2">
+                            <span class="text-white font-black uppercase text-sm">Seu Lucro Líquido:</span>
+                            <span class="text-2xl font-[900] text-green-500 bg-green-500/10 px-3 py-1 rounded-lg">R$ 120,10</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-[10px] text-gray-500 mt-6 text-center uppercase font-bold tracking-widest">
+                        * Você recupera 4x o valor investido na primeira hora.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-red-950/10 border border-red-900/20 p-8 rounded-3xl opacity-60">
+                    <h4 class="text-red-500 font-black mb-4 uppercase tracking-widest text-sm">Sem o Protocolo:</h4>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li class="flex items-center gap-2">✕ Paga R$ 12,00 de entrega sorrindo.</li>
+                        <li class="flex items-center gap-2">✕ Fica preso a cupons de R$ 5,00 que expiram.</li>
+                        <li class="flex items-center gap-2">✕ Gasta R$ 1.500/ano que poderiam ser investidos.</li>
+                    </ul>
+                </div>
+                <div class="bg-green-950/10 border border-green-500/20 p-8 rounded-3xl shadow-[0_0_40px_rgba(34,197,94,0.1)]">
+                    <h4 class="text-green-500 font-black mb-4 uppercase tracking-widest text-sm">Com o Bug Master:</h4>
+                    <ul class="space-y-3 text-sm text-white">
+                        <li class="flex items-center gap-2">✅ Compras de mercado por R$ 0,00 toda semana.</li>
+                        <li class="flex items-center gap-2">✅ Acesso ao Proxy que oculta seu CPF real.</li>
+                        <li class="flex items-center gap-2">✅ Liberdade para pedir o que quiser, quando quiser.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROVAS SOCIAIS REAIS -->
+    <section class="py-24 px-4 bg-black overflow-hidden relative">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-500/20 to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-6xl font-[900] mb-4 uppercase italic tracking-tighter text-white">
+                    FEED DE ATIVAÇÕES <span class="text-green-500 font-black">AO VIVO</span>
+                </h2>
+                <p class="text-gray-500 uppercase text-xs tracking-[0.4em] font-bold">Extraído do nosso Servidor VIP de Monitoramento</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <div class="bg-zinc-900/40 p-6 rounded-[2rem] border border-white/5 card-shadow hover:border-green-500/30 transition-all">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://i.pravatar.cc/100?u=v1" class="w-12 h-12 rounded-full border-2 border-zinc-800">
+                        <div>
+                            <p class="text-sm font-black text-white">Marcos Viana</p>
+                            <p class="text-[10px] text-green-500 font-bold uppercase">Saldo R$ 342,00 Ativado</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">"Na primeira compra de mercado o bug abateu R$ 300 direto no checkout. Os R$ 29,90 se pagaram em 10 minutos."</p>
+                    <div class="bg-black/40 p-2 rounded-lg border border-white/5 flex justify-between items-center text-[10px]">
+                        <span class="text-gray-500 font-mono">ID: #99281X</span>
+                        <span class="text-green-500 font-black">POUPANÇA: R$ 312,10</span>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 p-6 rounded-[2rem] border border-white/5 card-shadow hover:border-blue-500/30 transition-all">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://i.pravatar.cc/100?u=v2" class="w-12 h-12 rounded-full border-2 border-zinc-800">
+                        <div>
+                            <p class="text-sm font-black text-white">Juliana S. Lopes</p>
+                            <p class="text-[10px] text-blue-500 font-bold uppercase">Modo Stealth Ativo</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">"O esquema da conta fantasma é genial. Não uso meu CPF pra nada e o lanche chega normal. Quarto pedido e 0 problemas."</p>
+                    <div class="bg-black/40 p-2 rounded-lg border border-white/5 flex justify-between items-center text-[10px]">
+                        <span class="text-gray-500 font-mono">STATUS: ANÔNIMO</span>
+                        <span class="text-blue-500 font-black">PROTEÇÃO 100%</span>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 p-6 rounded-[2rem] border border-white/5 card-shadow hover:border-orange-500/30 transition-all">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://i.pravatar.cc/100?u=v3" class="w-12 h-12 rounded-full border-2 border-zinc-800">
+                        <div>
+                            <p class="text-sm font-black text-white">Ricardo Mendes</p>
+                            <p class="text-[10px] text-orange-500 font-bold uppercase">Outback Aprovado</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">"Conta de R$ 180,00 saiu por R$ 0,00. Injetar o script via Modo Dev funciona liso. Melhor investimento de 30 reais."</p>
+                    <div class="bg-black/40 p-2 rounded-lg border border-white/5 flex justify-between items-center text-[10px]">
+                        <span class="text-gray-500 font-mono">ID: #88127K</span>
+                        <span class="text-orange-500 font-black">VALOR FINAL: R$ 0,00</span>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 p-6 rounded-[2rem] border border-white/5 card-shadow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://i.pravatar.cc/100?u=v4" class="w-12 h-12 rounded-full border-2 border-zinc-800">
+                        <div>
+                            <p class="text-sm font-black text-white">Fabrícia T.</p>
+                            <p class="text-[10px] text-green-500 font-bold uppercase">Ativado em 4 Minutos</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">"Comprei e em menos de 5 min já tava com o saldo na conta fantasma. Tutorial direto ao ponto, sem enrolação."</p>
+                    <div class="bg-black/40 p-2 rounded-lg border border-white/5 flex justify-between items-center text-[10px]">
+                        <span class="text-gray-500 font-mono">LATÊNCIA: 12ms</span>
+                        <span class="text-green-500 font-black">SESSÃO: ATIVA</span>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 p-6 rounded-[2rem] border border-white/5 card-shadow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://i.pravatar.cc/100?u=v5" class="w-12 h-12 rounded-full border-2 border-zinc-800">
+                        <div>
+                            <p class="text-sm font-black text-white">Paulo Garcia</p>
+                            <p class="text-[10px] text-purple-500 font-bold uppercase">Festa das Crianças Free</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">"Fiz 3 combos grandes no McDonald's pros meus filhos e paguei R$ 0,00. Economizei uns R$ 140 hoje. Vale cada centavo!"</p>
+                    <div class="bg-black/40 p-2 rounded-lg border border-white/5 flex justify-between items-center text-[10px]">
+                        <span class="text-gray-500 font-mono">PEDIDO: #BK-992</span>
+                        <span class="text-purple-500 font-black">SALDO: UTILIZADO</span>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 p-6 rounded-[2rem] border border-white/5 card-shadow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://i.pravatar.cc/100?u=v6" class="w-12 h-12 rounded-full border-2 border-zinc-800">
+                        <div>
+                            <p class="text-sm font-black text-white">Tiago Nogueira</p>
+                            <p class="text-[10px] text-cyan-500 font-bold uppercase">Script Injetado</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">"Sou dev e achei a brecha genial. É erro de lógica na API de marketing mesmo. O proxy que eles dão é de alta qualidade."</p>
+                    <div class="bg-black/40 p-2 rounded-lg border border-white/5 flex justify-between items-center text-[10px]">
+                        <span class="text-gray-500 font-mono">API: V.12.4.0</span>
+                        <span class="text-cyan-500 font-black">CÓDIGO: VALIDADO</span>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 p-6 rounded-[2rem] border border-white/5 card-shadow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://i.pravatar.cc/100?u=v7" class="w-12 h-12 rounded-full border-2 border-zinc-800">
+                        <div>
+                            <p class="text-sm font-black text-white">Benoni Farias</p>
+                            <p class="text-[10px] text-pink-500 font-bold uppercase">Barca 80 Peças Free</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">"Sextou com japa de R$ 210,00 por conta dos acionistas kkkk. Paguei 30 no método e ganhei 200 em comida. Melhor troca!"</p>
+                    <div class="bg-black/40 p-2 rounded-lg border border-white/5 flex justify-between items-center text-[10px]">
+                        <span class="text-gray-500 font-mono">RESGATE: 100%</span>
+                        <span class="text-pink-500 font-black">RECURSO: ATIVO</span>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 p-6 rounded-[2rem] border border-white/5 card-shadow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://i.pravatar.cc/100?u=v8" class="w-12 h-12 rounded-full border-2 border-zinc-800">
+                        <div>
+                            <p class="text-sm font-black text-white">Luana Oliveira</p>
+                            <p class="text-[10px] text-yellow-500 font-bold uppercase">Economia de Estudante</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">"Moro sozinha e tava gastando muito com delivery. Esse método salvou meu mês. Faço mercado e peço janta 0800 direto."</p>
+                    <div class="bg-black/40 p-2 rounded-lg border border-white/5 flex justify-between items-center text-[10px]">
+                        <span class="text-gray-500 font-mono">TOTAL_SAVE: R$ 890,00</span>
+                        <span class="text-yellow-500 font-black">ROI: 30x</span>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900/40 p-6 rounded-[2rem] border border-white/5 card-shadow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://i.pravatar.cc/100?u=v9" class="w-12 h-12 rounded-full border-2 border-zinc-800">
+                        <div>
+                            <p class="text-sm font-black text-white">Carla Eduardo</p>
+                            <p class="text-[10px] text-red-500 font-bold uppercase">Suporte Vitalício</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">"Tive uma dúvida na hora de resetar o IP e me ajudaram no Telegram na hora. O bug tá on e o suporte é nota 10."</p>
+                    <div class="bg-black/40 p-2 rounded-lg border border-white/5 flex justify-between items-center text-[10px]">
+                        <span class="text-gray-500 font-mono">TELEGRAM: VIP</span>
+                        <span class="text-red-500 font-black">CONEXÃO: ESTÁVEL</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-16 text-center">
+                <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-6 py-2 rounded-full">
+                    <span class="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <p class="text-zinc-500 text-[11px] uppercase font-black tracking-[0.2em]">
+                        Mais de <span class="text-white">14.280 usuários</span> já utilizaram a brecha apenas em 2026.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: POR QUE TÃO BARATO? (QUEBRA DE OBJEÇÃO) -->
+    <section class="py-24 px-4 bg-zinc-900/30 relative overflow-hidden text-white">
+        <div class="absolute inset-0 opacity-5 pointer-events-none">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-green-500 rounded-full animate-ping"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-black mb-10 italic uppercase tracking-tighter">
+                POR QUE COBRAMOS APENAS <span class="text-green-500 underline">R$ 29,90?</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 text-left">
+                <div class="bg-black/50 p-8 rounded-3xl border border-white/5 hover:border-green-500/20 transition-colors">
+                    <h3 class="font-bold mb-4 flex items-center gap-2">
+                        <span class="text-green-500">01.</span> FILTRO ANTI-ESPIÃO
+                    </h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Se liberarmos esse método de graça, os moderadores dos aplicativos teriam acesso imediato à brecha e a fechariam em 24 horas. O valor de R$ 29,90 serve como um <span class="text-white font-bold text-xs uppercase">filtro de segurança</span> para manter apenas usuários reais e interessados no sistema longe dos olhos das plataformas.
+                    </p>
+                </div>
+
+                <div class="bg-black/50 p-8 rounded-3xl border border-white/5 hover:border-green-500/20 transition-colors">
+                    <h3 class="font-bold mb-4 flex items-center gap-2">
+                        <span class="text-green-500">02.</span> MANUTENÇÃO DOS PROXIES
+                    </h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Para que você não precise usar seu CPF real, nós fornecemos um <span class="text-white font-bold text-xs uppercase">Túnel de IP (Proxy)</span> que mascara sua conexão de forma militar. Esse servidor tem um custo elevado de manutenção. Os R$ 29,90 são redirecionados exclusivamente para manter esses servidores ativos e indetectáveis.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12 p-6 bg-green-600/5 rounded-2xl border border-green-600/20 inline-block">
+                <p class="text-gray-300 text-sm font-medium leading-relaxed">
+                    <span class="font-black text-green-500 uppercase tracking-widest mr-2">Aviso:</span> 
+                    Eu não preciso do seu dinheiro. Eu uso esse bug todos os dias. <br class="hidden md:block">
+                    O que eu preciso é de <span class="text-white font-bold italic">volume de dados descentralizado</span> para confundir o algoritmo deles.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFERTA FINAL -->
+    <section id="preço" class="py-24 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-green-600/5 -z-10"></div>
+        
+        <div class="absolute left-0 top-1/2 -translate-y-1/2 opacity-10 hidden lg:block font-mono text-[10px] text-green-500">
+            &lt;script&gt;<br>inject_saldo(150.00);<br>bypass_gateway(true);<br>hide_ip(militar);<br>&lt;/script&gt;
+        </div>
+
+        <div class="max-w-xl mx-auto text-center">
+            <div class="inline-block bg-red-600 text-white font-black px-6 py-1 rounded-full text-xs uppercase mb-6 tracking-widest animate-bounce">
+                ⚠️ ÚLTIMAS LICENÇAS DISPONÍVEIS
+            </div>
+            
+            <h2 class="text-5xl md:text-7xl font-[900] mb-8 italic tracking-tighter text-white uppercase">
+                ACESSO <span class="text-green-500">LIBERADO.</span>
+            </h2>
+            
+            <div class="bg-black border-2 border-green-600 p-8 md:p-12 rounded-[40px] shadow-[0_0_80px_rgba(34,197,94,0.3)] relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4">
+                    <span class="bg-red-600 text-[10px] font-black px-4 py-1 rounded-full text-white shadow-lg">98% ATIVADO</span>
+                </div>
+                
+                <div class="mb-8 flex flex-col items-center justify-center">
+                    <p class="text-[10px] text-gray-500 uppercase tracking-[0.3em] mb-3 font-black">A brecha expira em:</p>
+                    <div class="flex gap-3 text-white font-black text-3xl">
+                        <div class="bg-zinc-900 border border-white/10 w-16 py-3 rounded-2xl shadow-inner shadow-white/5" id="min">12</div>
+                        <div class="py-3 animate-pulse">:</div>
+                        <div class="bg-zinc-900 border border-white/10 w-16 py-3 rounded-2xl shadow-inner shadow-white/5" id="sec">34</div>
+                    </div>
+                </div>
+
+                <div class="space-y-1 mb-10">
+                    <p class="text-gray-500 line-through text-xl font-bold">De R$ 197,00 por apenas</p>
+                    <div class="flex items-center justify-center gap-2">
+                        <span class="text-3xl font-bold text-white">4x</span>
+                        <span class="text-6xl font-[900] text-white tracking-tighter">R$ 8,37</span>
+                    </div>
+                    <p class="text-green-500 font-black text-xl uppercase italic">Ou R$ 29,90 à vista</p>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold mt-2">Pagamento Único • Acesso Vitalício</p>
+                </div>
+
+                <div class="text-left bg-white/5 p-5 rounded-2xl mb-10 border border-white/10">
+                    <ul class="text-xs text-gray-300 space-y-3">
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-500 font-bold">✔</span> 
+                            <span>Acesso ao <strong>Protocolo Bug Master 12.4.0</strong></span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-500 font-bold">✔</span> 
+                            <span>Injetor de <strong>Saldo de R$ 150,00</strong></span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-500 font-bold">✔</span> 
+                            <span>Ferramenta de <strong>Ocultação de CPF (Proxy)</strong></span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green-500 font-bold">✔</span> 
+                            <span><strong>Suporte 24h</strong> via Telegram VIP</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="https://offerhub.lpqv.io/bug-master-pro/checkout/direct/dD0wJnA9OCZ2PVZOUlpVT1NWTSZxPTEmdT1idWctZG8taWZvb2Q=" class="block w-full bg-green-600 hover:bg-green-500 text-white font-[900] py-8 rounded-[2rem] text-xl md:text-2xl uppercase shadow-[0_15px_40px_rgba(34,197,94,0.4)] transition-all transform hover:scale-[1.05] active:scale-95 glow-button mb-6 italic tracking-tighter">
+                    RESGATAR MEU SALDO
+                </a>
+
+                <div class="flex items-center justify-center gap-4">
+                    <img src="https://img.icons8.com/color/512/pix.png" class="h-4 grayscale opacity-50">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_2019_logo.svg/1200px-Mastercard_2019_logo.svg.png" class="h-4 grayscale opacity-50">
+                    <img src="https://pngimg.com/d/visa_PNG36.png" class="h-4 grayscale opacity-50">
+                </div>
+            </div>
+
+            <div class="mt-12 flex flex-col md:flex-row items-center gap-6 text-left bg-zinc-900/50 p-8 rounded-3xl border border-white/5">
+                <img src="https://www.pilatesparagestantes.com.br/wp-content/uploads/2023/07/Selo-de-Garantia-de-7-Dias-PNG-Transparente-Sem-Fundo-1.png" class="w-24 h-24 object-contain shadow-2xl">
+                <div>
+                    <h4 class="text-xl font-black mb-2 uppercase text-white tracking-tighter italic">Risco Zero ou Seu Dinheiro de Volta</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        Você tem <span class="text-white font-bold">7 dias de garantia total</span>. Se você seguir o passo a passo e o saldo não cair na sua conta em 5 minutos, nós devolvemos seus R$ 29,90 na hora. Sem perguntas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ REFILTRADO -->
+    <section class="py-24 px-4 bg-black relative">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-[900] mb-4 uppercase italic tracking-tighter text-white">Dúvidas Frequentes</h2>
+                <p class="text-gray-500 uppercase text-xs tracking-[0.3em] font-bold">Respostas diretas da equipe técnica</p>
+            </div>
+            
+            <div class="space-y-4">
+                <details class="group bg-zinc-900/30 rounded-[2rem] p-6 border border-white/5 cursor-pointer hover:bg-zinc-900/60 transition-all">
+                    <summary class="list-none font-black flex justify-between items-center text-lg md:text-xl text-white italic">
+                        O ENTREGADOR PODE DESCOBRIR?
+                        <span class="text-green-500 group-open:rotate-180 transition-transform duration-300">↓</span>
+                    </summary>
+                    <div class="mt-4 text-gray-400 leading-relaxed border-t border-white/5 pt-4 text-sm">
+                        <p>Impossível. Para o restaurante e para o entregador, o pedido aparece como <span class="text-white font-bold uppercase text-xs">Pago via Cartão (App)</span>. O bug ocorre na camada de processamento de créditos de marketing, muito antes da nota ser emitida. Você é um cliente normal para eles.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-zinc-900/30 rounded-[2rem] p-6 border border-white/5 cursor-pointer hover:bg-zinc-900/60 transition-all">
+                    <summary class="list-none font-black flex justify-between items-center text-lg md:text-xl text-white italic">
+                        CORRO RISCO DE BANIMENTO?
+                        <span class="text-green-500 group-open:rotate-180 transition-transform duration-300">↓</span>
+                    </summary>
+                    <div class="mt-4 text-gray-400 leading-relaxed border-t border-white/5 pt-4 text-sm">
+                        <p>Não, porque você não usará seus dados reais. O método ensina a criar uma <span class="text-white font-bold uppercase text-xs">Conta Fantasma</span> protegida por um túnel de IP. Se uma conta cair (o que leva meses para o algoritmo detectar), você cria outra em 2 minutos e continua pedindo.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-zinc-900/30 rounded-[2rem] p-6 border border-white/5 cursor-pointer hover:bg-zinc-900/60 transition-all">
+                    <summary class="list-none font-black flex justify-between items-center text-lg md:text-xl text-white italic">
+                        FUNCIONA EM QUALQUER LUGAR?
+                        <span class="text-green-500 group-open:rotate-180 transition-transform duration-300">↓</span>
+                    </summary>
+                    <div class="mt-4 text-gray-400 leading-relaxed border-t border-white/5 pt-4 text-sm">
+                        <p>Funciona em <span class="text-white font-bold uppercase text-xs">Qualquer Cidade</span> do Brasil que tenha iFood, Uber Eats ou Rappi. Como a brecha é no código central das empresas, a sua localização geográfica não interfere no saldo.</p>
+                    </div>
+                </details>
+
+                <details class="group bg-zinc-900/30 rounded-[2rem] p-6 border border-white/5 cursor-pointer hover:bg-zinc-900/60 transition-all">
+                    <summary class="list-none font-black flex justify-between items-center text-lg md:text-xl text-white italic">
+                        E SE EU NÃO CONSEGUIR FAZER?
+                        <span class="text-green-500 group-open:rotate-180 transition-transform duration-300">↓</span>
+                    </summary>
+                    <div class="mt-4 text-gray-400 leading-relaxed border-t border-white/5 pt-4 text-sm">
+                        <p>O tutorial é em vídeo e passo a passo. Mas se mesmo assim você não conseguir ativar seu saldo em até 7 dias, basta nos chamar no Telegram ou e-mail que <span class="text-white font-bold uppercase text-xs">estornamos seus R$ 29,90 na hora</span>. O risco é 100% nosso.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 text-center bg-black border-t border-white/5 px-4">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-[9px] md:text-[10px] text-gray-700 uppercase font-black tracking-[0.3em] leading-relaxed mb-6">
+                Este site é uma ferramenta independente e não possui qualquer vínculo com iFood, Uber, Google ou Facebook. <br class="hidden md:block">
+                Todas as estratégias são compartilhadas para fins educacionais de cibersegurança. Use com responsabilidade.
+            </p>
+            <div class="flex justify-center gap-6 text-[10px] text-gray-600 font-bold uppercase">
+                <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                <a href="#" class="hover:text-white transition-colors">Políticas de Privacidade</a>
+                <a href="#" class="hover:text-white transition-colors">Contato</a>
+            </div>
+            <p class="mt-8 text-[9px] text-zinc-800">© 2026 Protocolo Bug Master - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="notification-toast" class="fixed bottom-10 left-4 z-[100] opacity-0 pointer-events-none transition-all duration-700 ease-in-out">
+        <div class="bg-zinc-900 border border-white/10 p-4 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center gap-4 max-w-[280px]">
+            <div class="relative">
+                <img id="notif-img" src="https://i.pravatar.cc/100?u=1" class="w-12 h-12 rounded-full border-2 border-green-500">
+                <div class="absolute -bottom-1 -right-1 bg-green-500 w-4 h-4 rounded-full border-2 border-zinc-900 flex items-center justify-center">
+                    <span class="text-[8px] text-black font-bold">✔</span>
+                </div>
+            </div>
+            <div>
+                <p class="text-[11px] text-gray-400 font-bold uppercase tracking-tighter" id="notif-name">Ricardo M.</p>
+                <p class="text-xs text-white font-medium" id="notif-action">Acabou de ativar R$ 150,00 de saldo</p>
+                <p class="text-[9px] text-green-500 font-bold mt-1 uppercase" id="notif-time">há 2 minutos</p>
+            </div>
         </div>
     </div>
 
-    <!-- Header / Hero Section -->
-    <header class="w-full max-w-md text-center pt-10 pb-6 px-4">
-        <div class="inline-block border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 rounded-full mb-6">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 font-black italic">⚠️ Últimas 12 Vagas Disponíveis</span>
-        </div>
-        <h1 class="text-3xl font-black uppercase italic leading-tight mb-6">
-            Seu <span class="text-gold underline">Pênis</span> está morrendo e a culpa é do <span class="text-red-500">Sistema</span>.
-        </h1>
-        <div class="space-y-4 text-zinc-400 text-sm leading-relaxed text-left">
-            <p>Imagine acordar todos os dias sentindo que seu corpo não te obedece mais. O cansaço, a falta de desejo e aquela sensação humilhante de <span class="text-white font-bold italic">"falhar"</span> na hora em que ela mais espera por você. Isso não é apenas velhice. É um ataque direto à sua masculinidade arquitetado por quem lucra com a sua fraqueza.</p>
-            <p>A verdade que os médicos tradicionais escondem é que existe uma manobra biológica de apenas 3 minutos capaz de reverter o <span class="text-white font-bold italic underline">"Sequestro Hormonal"</span> e devolver o vigor que você tinha aos 18 anos de idade, sem efeitos colaterais.</p>
-        </div>
-        <button onclick="scrollToOffer()" class="hidden w-full mt-8 py-5 bg-green-600 hover:bg-green-500 text-white rounded-2xl font-black text-xl uppercase cta-pulse transition-all">
-            Quero meu Vigor de Volta
-        </button>
-    </header>
+    <style>
+        .show-notif { transform: translate-y-0 !important; opacity: 1 !important; }
+    </style>
 
-    <main class="w-full max-w-md px-4 space-y-12 pb-20">
-        
-        <!-- A Armadilha -->
-        <section class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-3xl">
-            <div class="mb-6 overflow-hidden rounded-2xl border border-red-900/50 aspect-video">
-                <img src="https://ampost.com.br/wp-content/uploads/2024/04/alimentos-industrializados-1024x786.jpg" alt="Alimentos Industrializados" class="w-full h-full object-cover grayscale opacity-60">
-            </div>
-            <h2 class="text-xl font-bold mb-4 text-red-500 uppercase italic text-center leading-tight">Eles lucram com a sua impotência silenciosa.</h2>
-            <div class="space-y-4 text-zinc-400 text-sm leading-relaxed">
-                <p>O que ninguém te conta é que vivemos em um mar de venenos químicos. Plásticos, agrotóxicos na água e soja industrializada estão inundando seu sangue com <span class="text-white font-bold italic underline text-zinc-100">Estrogênio Tóxico</span> — o hormônio feminino.</p>
-                <p>Isso cria uma espécie de "crosta" rígida nos seus vasos sanguíneos que impede que o sangue chegue com a pressão necessária no pênis. Eles querem que você dependa de pílulas pro resto da vida, mantendo você como um escravo da indústria farmacêutica.</p>
-            </div>
-        </section>
-
-        <!-- NOVO BLOCO: Comparativo Letal -->
-        <section class="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
-            <div class="bg-zinc-800 py-3 px-6 text-center border-b border-zinc-700">
-                <h3 class="font-black uppercase text-xs tracking-widest italic">A Verdade que dói no bolso</h3>
-            </div>
-            <div class="p-6 space-y-6">
-                <div class="flex items-center gap-4 opacity-50">
-                    <div class="w-12 h-12 bg-red-600/20 rounded-xl flex items-center justify-center flex-shrink-0 text-xl shadow-lg">❌</div>
-                    <div>
-                        <p class="text-xs font-bold text-red-500 uppercase">Pílula Azul (A solução perigosa)</p>
-                        <p class="text-[10px] text-zinc-500">Custa até R$ 50 por dose, gera taquicardia, dores lancinantes de cabeça e cria uma ereção artificial 'gelada' que ela percebe na hora.</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-green-600/20 rounded-xl flex items-center justify-center flex-shrink-0 text-xl shadow-lg">✅</div>
-                    <div>
-                        <p class="text-xs font-bold text-green-500 uppercase">Protocolo T-Max (A solução biológica)</p>
-                        <p class="text-[10px] text-zinc-300">Custa menos de R$ 10 hoje, ativa a produção natural de testosterona e permite ereções rígidas e naturais que duram o tempo que você decidir.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- A Ciência -->
-        <section class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-3xl">
-            <div class="mb-6 overflow-hidden rounded-2xl border border-blue-900/50 aspect-video">
-                <img src="https://www.news.med.br/fmfiles/index.asp/::news::/news/A-estimulacao-do-nervo-vago-e-promissora-na-recuperacao-de-lesoes-na-medula-espinhal.jpg" alt="Nervo Vago" class="w-full h-full object-cover opacity-80">
-            </div>
-            <h2 class="text-xl font-bold mb-4 text-blue-400 uppercase italic text-center leading-tight">A Ciência Alemã da Bio-Mecânica</h2>
-            <div class="space-y-4 text-zinc-400 text-sm leading-relaxed">
-                <p>Cientistas europeus descobriram que o segredo não está em remédios, mas em um "disjuntor" escondido no seu corpo. Estimular o <span class="text-white font-bold italic underline text-zinc-100">Nervo Vago</span> via manobra mecânica libera uma descarga explosiva de <span class="text-white font-bold italic underline text-zinc-100">Óxido Nítrico</span> puro diretamente na sua corrente sanguínea.</p>
-                <p>Em apenas 7 dias, o seu sistema estará completamente "religado". Você vai voltar a ter ereções matinais involuntárias e o seu pênis ficará <span class="text-white font-bold italic text-lg text-zinc-100">mais duro que madeira</span>, como se o tempo tivesse voltado 20 anos atrás.</p>
-            </div>
-        </section>
-
-        <!-- O Especialista -->
-        <section class="text-center bg-zinc-900/80 border border-zinc-800 p-6 rounded-3xl">
-            <div class="mb-6 mx-auto w-full aspect-square overflow-hidden rounded-2xl border border-zinc-700 max-w-[280px]">
-                <img src="https://instaboost.com.br/wp-content/uploads/2026/02/14.jpeg" alt="Dr Ricardo Vilar" class="w-full h-full object-cover">
-            </div>
-            <h2 class="text-xl font-bold mb-1 italic">Dr. Ricardo Vilar</h2>
-            <span class="text-zinc-500 text-[10px] uppercase font-bold tracking-widest block mb-6 italic text-gold">PhD em Biofísica Masculina</span>
-            <div class="text-zinc-300 text-sm leading-relaxed italic space-y-4 text-left">
-                <p>"Não deixe ela se acostumar com a sua falta de vigor. A frustração silenciosa de uma mulher que não é satisfeita é o que destrói casamentos e mata o desejo para sempre."</p>
-                <p>"Minha missão com o Protocolo T-Max é simples: dar a qualquer homem, independente da idade, a capacidade de ser dominante no quarto novamente. Eu tratei mais de 4.000 homens no meu consultório e agora trouxe esse método para o digital por um preço simbólico para combater essa castração em massa."</p>
-            </div>
-        </section>
-
-        <!-- O QUE ACONTECE SE VOCÊ NÃO AGIR? (Novo Bloco de Copy) -->
-        <section class="p-6 bg-red-600/5 border border-red-600/20 rounded-3xl">
-            <h2 class="text-xl font-black text-red-500 uppercase italic mb-6 text-center leading-tight">O que acontece se você não fizer nada agora?</h2>
-            <ul class="space-y-4 text-sm text-zinc-400">
-                <li class="flex gap-3">
-                    <span class="text-red-500 font-bold">●</span>
-                    <p><span class="text-white font-bold">Atrofia Arterial:</span> Sem o fluxo sanguíneo correto, as artérias do seu pênis encolhem e "morrem" permanentemente.</p>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-red-500 font-bold">●</span>
-                    <p><span class="text-white font-bold">Distanciamento Afetivo:</span> Ela vai começar a te ver como um 'amigo' ou 'irmão' e o tesão dela por você vai sumir para sempre.</p>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-red-500 font-bold">●</span>
-                    <p><span class="text-white font-bold">Dependência Química:</span> Você será escravo de pílulas caras que danificam seu coração a cada transa.</p>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Prova Social -->
-        <section class="space-y-6">
-            <h2 class="text-2xl font-black text-center uppercase italic">O Vigor Voltou Aqui:</h2>
-            <div class="carousel-container">
-                <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg">
-                    <img src="https://instaboost.com.br/wp-content/uploads/2025/11/1-4.jpg" class="w-full h-64 object-cover">
-                    <div class="p-3 bg-zinc-800/90 text-left">
-                        <span class="text-gold font-bold text-[10px]">REATIVAÇÃO DIA 3</span>
-                        <p class="text-[11px] text-zinc-300 italic">"Nunca tive essa pressão antes."</p>
-                    </div>
-                </div>
-                <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg">
-                    <img src="https://instaboost.com.br/wp-content/uploads/2025/11/2-4.jpg" class="w-full h-64 object-cover">
-                    <div class="p-3 bg-zinc-800/90 text-left">
-                        <span class="text-gold font-bold text-[10px]">REATIVAÇÃO DIA 5</span>
-                        <p class="text-[11px] text-zinc-300 italic">"Pressão absurda, pareço um garoto."</p>
-                    </div>
-                </div>
-                <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg">
-                    <img src="https://instaboost.com.br/wp-content/uploads/2025/11/preview2.mp4.jpg" class="w-full h-64 object-cover">
-                    <div class="p-3 bg-zinc-800/90 text-left">
-                        <span class="text-gold font-bold text-[10px]">REATIVAÇÃO DIA 7</span>
-                        <p class="text-[11px] text-zinc-300 italic">"Impressionado com o volume final."</p>
-                    </div>
-                </div>
-                <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg">
-                    <img src="https://instaboost.com.br/wp-content/uploads/2025/11/preview.mp4-1.jpg" class="w-full h-64 object-cover">
-                    <div class="p-3 bg-zinc-800/90 text-left">
-                        <span class="text-gold font-bold text-[10px]">VIGOR MAXIMIZADO</span>
-                        <p class="text-[11px] text-zinc-300 italic">"Controle total, ela não acredita."</p>
-                    </div>
-                </div>
-                <div class="carousel-item bg-zinc-800 rounded-2xl border border-zinc-700 overflow-hidden shadow-lg">
-                    <img src="https://instaboost.com.br/wp-content/uploads/2025/11/3-4.jpg" class="w-full h-64 object-cover">
-                    <div class="p-3 bg-zinc-800/90 text-left">
-                        <span class="text-gold font-bold text-[10px]">MÉTODO T-MAX</span>
-                        <p class="text-[11px] text-zinc-300 italic">"Dureza de quando tinha 18 anos."</p>
-                    </div>
-                </div>
-            </div>
-            <p class="text-zinc-600 text-[10px] text-center font-bold animate-pulse uppercase tracking-widest">Deslize para ver todos os resultados ➔</p>
-        </section>
-
-        <!-- F.A.Q. DE AUTORIDADE (Novo Bloco de Copy) -->
-        <section class="space-y-6">
-            <h2 class="text-xl font-black text-center uppercase italic text-zinc-100 tracking-tighter">Dúvidas Frequentes</h2>
-            <div class="space-y-4">
-                <div class="bg-zinc-900/50 p-4 rounded-2xl border border-zinc-800">
-                    <p class="text-xs font-bold text-zinc-200 mb-2">1. Serve para quem tem diabetes ou hipertensão?</p>
-                    <p class="text-[11px] text-zinc-500 leading-relaxed">Sim! Como o método é baseado em estímulos biológicos naturais e manobras mecânicas, não existe ingestão de químicos que possam alterar sua pressão arterial ou glicemia.</p>
-                </div>
-                <div class="bg-zinc-900/50 p-4 rounded-2xl border border-zinc-800">
-                    <p class="text-xs font-bold text-zinc-200 mb-2">2. Em quanto tempo vejo os resultados?</p>
-                    <p class="text-[11px] text-zinc-500 leading-relaxed">Muitos homens relatam ereções matinais já no segundo dia. O protocolo completo de reativação leva 7 dias para equilibrar o seu Eixo HPTA.</p>
-                </div>
-                <div class="bg-zinc-900/50 p-4 rounded-2xl border border-zinc-800">
-                    <p class="text-xs font-bold text-zinc-200 mb-2">3. O pagamento é realmente discreto?</p>
-                    <p class="text-[11px] text-zinc-500 leading-relaxed">Absolutamente. Na fatura do seu banco aparecerá apenas "DIGITAL-INFO", garantindo que ninguém saiba o conteúdo do que você comprou.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- A Oferta Final -->
-        <section id="oferta" class="bg-zinc-900 border border-zinc-800 p-8 rounded-[40px] text-center space-y-6 bg-red-glow">
-            <div class="bg-red-600/20 border border-red-600 text-red-500 px-4 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase italic">
-                ⚠️ Oferta Expira em <span id="timer">09:47</span>
-            </div>
-            
-            <div class="space-y-1">
-                <h2 class="text-2xl font-black uppercase italic leading-tight">Protocolo T-Max 7D</h2>
-                <p class="text-zinc-500 text-xs font-bold">O Segredo Biológico da Potência Máxima</p>
-            </div>
-
-            <div class="py-4 border-y border-zinc-800">
-                <p class="text-zinc-500 line-through text-sm">De R$ 97,00</p>
-                <div class="flex items-start justify-center text-green-500 font-black">
-                    <span class="text-xl mt-2 mr-1">Por R$</span>
-                    <span class="text-6xl">9</span>
-                    <span class="text-2xl mt-2">,99</span>
-                </div>
-                <p class="text-zinc-500 text-[10px] mt-2 font-bold uppercase italic">Acesso Imediato via PIX</p>
-            </div>
-
-            <button onclick="goToCheckout()" class="w-full py-6 bg-green-600 hover:bg-green-500 text-white rounded-2xl font-black text-xl uppercase shadow-[0_0_40px_rgba(22,163,74,0.4)] transition-all">
-                Pagar R$ 9,99 no PIX
-            </button>
-
-            <!-- Checklist de Urgência -->
-            <div class="text-left bg-zinc-800/50 p-4 rounded-2xl border border-zinc-700">
-                <p class="text-[10px] font-black uppercase text-zinc-400 mb-3 text-center tracking-tighter">O que você recebe em 30 segundos:</p>
-                <ul class="space-y-3 text-[11px] text-zinc-300">
-                    <li class="flex items-center gap-2">✅ <span class="font-bold">Vídeo-Manobra T-Max:</span> A técnica exata para religar o sinal cérebro-pênis.</li>
-                    <li class="flex items-center gap-2">✅ <span class="font-bold">Checklist Anti-Estrogênio:</span> Como limpar seu sangue de venenos industriais.</li>
-                    <li class="flex items-center gap-2">✅ <span class="font-bold">Guia "Ejaculação de Ferro":</span> Aprenda a segurar e gozar só quando decidir.</li>
-                </ul>
-            </div>
-
-            <div class="pt-4 space-y-3 text-[11px] text-zinc-500 italic">
-                <p class="flex items-center justify-center gap-2">
-                    <img src="https://img.icons8.com/color/48/pix.png" class="h-4">
-                    Link de acesso enviado no seu WhatsApp/Email
-                </p>
-                <p>🔒 Transação Discreta: <span class="text-white font-bold">DIGITAL-INFO</span></p>
-                <p>💯 Garantia Blindada de 7 Dias</p>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="w-full max-w-md pb-20 px-8 text-center space-y-6">
-        <div class="flex justify-center gap-6 text-[10px] text-zinc-600 uppercase font-bold tracking-tighter">
-            <a href="#">Privacidade</a>
-            <a href="#">Termos</a>
-            <a href="#">Contato</a>
-        </div>
-        <p class="text-[9px] text-zinc-700 leading-relaxed">
-            Este site não é afiliado ao Facebook, TikTok ou Google. Os resultados baseiam-se em bio-estímulos e variam de acordo com o metabolismo individual. Todas as imagens de resultados foram cedidas por usuários reais do protocolo. Consulte seu médico.
-        </p>
+    <footer class="py-12 text-center text-[10px] text-gray-700 uppercase font-black tracking-[0.2em] border-t border-white/5">
+        <p>Este site não tem vínculo com iFood, Uber ou Google. <br> Use com responsabilidade.</p>
     </footer>
 
     <script>
-        const cities = ["São Paulo", "Rio de Janeiro", "Curitiba", "Belo Horizonte", "Fortaleza", "Salvador", "Brasília", "Porto Alegre", "Manaus", "Recife", "Goiânia", "Belém", "Florianópolis", "Vitória", "Cuiabá", "Natal", "João Pessoa", "Maceió", "Campo Grande", "Teresina", "Joinville", "Uberlândia", "Sorocaba", "Ribeirão Preto", "Caxias do Sul"];
-
-        function showNotification() {
-            const push = document.getElementById('push-notification');
-            const pushText = document.getElementById('push-text');
-            const pushTime = document.getElementById('push-time');
-            
-            const city = cities[Math.floor(Math.random() * cities.length)];
-            const minutes = Math.floor(Math.random() * 9) + 1;
-            
-            pushText.innerText = `Um homem de ${city} acabou de baixar`;
-            pushTime.innerText = `Há ${minutes} minutos`;
-            
-            push.classList.add('active');
-            
-            setTimeout(() => {
-                push.classList.remove('active');
-                scheduleNotification();
-            }, 4000);
+        // Data e Hora Dinâmica
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleDateString('pt-BR');
+            document.querySelectorAll('.current-date').forEach(el => el.textContent = timeStr);
         }
+        updateTime();
 
-        function scheduleNotification() {
-            const randomDelay = Math.floor(Math.random() * 10000) + 7000; 
-            setTimeout(showNotification, randomDelay);
-        }
-
-        function scrollToOffer() {
-            document.getElementById('oferta').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function goToCheckout() {
-            const baseUrl = "https://checkout.instaboost.com.br/checkout.php?slug=tmax";
-            const currentQueryParams = window.location.search;
-            
-            if (currentQueryParams) {
-                const cleanedParams = currentQueryParams.startsWith('?') ? currentQueryParams.substring(1) : currentQueryParams;
-                window.location.href = baseUrl + "&" + cleanedParams;
-            } else {
-                window.location.href = baseUrl;
+        // Tracking & Checkout
+        function setupCheckoutLink() {
+            const btn = document.getElementById('btn-checkout');
+            if (!btn) return;
+            const currentParams = window.location.search;
+            if (currentParams) {
+                const separator = btn.href.includes('?') ? '&' : '?';
+                const cleanParams = currentParams.startsWith('?') ? currentParams.substring(1) : currentParams;
+                btn.href = btn.href + separator + cleanParams;
             }
         }
 
-        function startTimer(duration, display) {
-            var timer = duration, minutes, seconds;
+        window.onload = setupCheckoutLink;
+
+        const notifications = [
+            { name: 'Priscila Silva', action: 'Ativou saldo de R$ 150,00', time: 'agora mesmo', img: 'https://i.pravatar.cc/100?u=12' },
+            { name: 'Julio Farias', action: 'Pediu BK por R$ 0,00', time: 'há 1 minuto', img: 'https://i.pravatar.cc/100?u=5' },
+            { name: 'André Souza', action: 'Resgatou cupom infinito', time: 'há 3 minutos', img: 'https://i.pravatar.cc/100?u=8' },
+            { name: 'Carlos Dias', action: 'Ativou saldo de R$ 85,00', time: 'agora mesmo', img: 'https://i.pravatar.cc/100?u=9' },
+            { name: 'Fabrícia T.', action: 'Liberou Modo Desenvolvedor', time: 'há 2 minutos', img: 'https://i.pravatar.cc/100?u=3' }
+        ];
+    
+        function showRandomNotification() {
+            const toast = document.getElementById('notification-toast');
+            const nameEl = document.getElementById('notif-name');
+            const actionEl = document.getElementById('notif-action');
+            const timeEl = document.getElementById('notif-time');
+            const imgEl = document.getElementById('notif-img');
+    
+            const randomNotif = notifications[Math.floor(Math.random() * notifications.length)];
+    
+            nameEl.textContent = randomNotif.name;
+            actionEl.textContent = randomNotif.action;
+            timeEl.textContent = randomNotif.time;
+            imgEl.src = randomNotif.img;
+    
+            // RESET E EXIBIÇÃO
+            toast.style.transform = 'translateY(0px)'; // Começa de baixo
+            toast.classList.remove('opacity-0');
+            toast.style.transform = 'translateY(-20px)'; // Sobe 20px
+            toast.classList.add('opacity-100');
+    
+            // Esconde depois de 6 segundos
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
+                toast.style.transform = 'translateY(20px)'; // Desce ao sumir
+            }, 6000);
+        }
+    
+        // Inicia o ciclo: Mostra a primeira após 3s e repete a cada 12s
+        setTimeout(() => {
+            showRandomNotification();
+            setInterval(showRandomNotification, 12000);
+        }, 3000);
+        
+        // Lógica do Cronômetro
+        function startTimer(duration, displayMin, displaySec) {
+            let timer = duration, minutes, seconds;
             setInterval(function () {
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
 
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
+                displayMin.textContent = minutes < 10 ? "0" + minutes : minutes;
+                displaySec.textContent = seconds < 10 ? "0" + seconds : seconds;
 
-                display.textContent = minutes + ":" + seconds;
-
-                if (--timer < 0) {
-                    timer = duration;
-                }
+                if (--timer < 0) { timer = duration; }
             }, 1000);
         }
 
-        window.onload = function() {
-            scheduleNotification();
-            var tenMinutes = 60 * 9.8,
-            display = document.querySelector('#timer');
-            startTimer(tenMinutes, display);
-        }
+        window.addEventListener('load', () => {
+            startTimer(13 * 58, document.querySelector('#min'), document.querySelector('#sec'));
+        });
     </script>
 </body>
 </html>
